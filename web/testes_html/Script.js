@@ -1,26 +1,35 @@
+function AtualizeGrafs(Option,xValues,yValues){
 
+	var xValues = [50,60,70,80,90,100,110,120,130,140,150];
+	var yValues = [7,8,8,9,9,9,10,11,14,14,15];
+	
+	new Chart(Option, {
+	  	type: "line",
+  		data: {
+  		  labels: xValues,
+   		datasets: [{
+     	 fill: false,
+     	 lineTension: 0.7,
+      	 backgroundColor: "black",
+      	 borderColor: "red",
+      	 data: yValues
+    	}]
+  	},
+  	options: {
+    	legend: {display: false},
+    	scales: {
+      	yAxes: [{ticks: {min: 0, max:18}}],
+    	}
+  	}
+	});
 
+}
 
-var xValues = [50,60,70,80,90,100,110,120,130,140,150];
-var yValues = [7,8,8,9,9,9,10,11,14,14,15];
+ AtualizeGrafs("graf1");
+ 
+ AtualizeGrafs("graf2");
 
-new Chart("graf1", {
-  type: "line",
-  data: {
-    labels: xValues,
-    datasets: [{
-      fill: false,
-      lineTension: 0,
-      backgroundColor: "rgba(0,0,255,1.0)",
-      borderColor: "rgba(0,0,255,0.1)",
-      data: yValues
-    }]
-  },
-  options: {
-    legend: {display: false},
-    scales: {
-      yAxes: [{ticks: {min: 0, max:16}}],
-      zAxes: [{ticks: {min: 0, max:3}}],
-    }
-  }
-});
+AtualizeGrafs("graf3");
+
+AtualizeGrafs("graf4");
+

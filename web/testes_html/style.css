@@ -56,3 +56,30 @@ li a:hover:not(.active) {
   background-color: #555;
   color: white;
 }
+
+.graf{
+
+	overflow: auto
+}
+
+.graf::-webkit-scrollbar {
+  display: none;
+}
+
+
+.graf {
+  overflow-y: scroll;
+  -ms-overflow-style: none;  
+  scrollbar-width: none;  
+}
+.container{
+
+	width:95%
+}
+
+canvas{
+
+	width:100%;
+	max-width:60%; 
+	margin:auto
+}
