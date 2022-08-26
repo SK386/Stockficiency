@@ -64,3 +64,11 @@ border-color:darkblue;
 
 }
 
+#bodycont{
+	width:700px;
+	height:100;
+	background-color:lightgrey;
+	position:relative;
+	margin:auto;
+	padding:auto;
+}
