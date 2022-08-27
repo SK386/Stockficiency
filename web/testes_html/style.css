@@ -58,7 +58,7 @@ li a:hover:not(.active) {
 }
 
 .graf{
-
+    color:#FFF;
 	overflow: auto
 }
 
@@ -80,6 +80,6 @@ li a:hover:not(.active) {
 canvas{
 
 	width:100%;
-	max-width:60%; 
+	max-width:90%;
 	margin:auto
 }
