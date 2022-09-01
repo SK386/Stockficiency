@@ -1,6 +1,6 @@
 CREATE TABLE clientes (
     id_cliente INT(5) AUTO_INCREMENT,
-    nome_cliente VARCHAR(255) NOT NULL,
-    #email_cliente VARCHAR(255) NOT NULL UNIQUE,
+    email VARCHAR(255) NOT NULL UNIQUE,
+    senha VARCHAR(50) NOT NULL,
         PRIMARY KEY (id_cliente)
 );

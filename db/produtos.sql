@@ -3,6 +3,6 @@ CREATE TABLE produtos (
     nome_produto VARCHAR(255) NOT NULL UNIQUE,
     descricao_produto VARCHAR(255),
     qtd_estoque INT(6) NOT NULL,
-    preco DECIMA(9, 2) NOT NULL,
+    preco DECIMAL(9, 2) NOT NULL,
         PRIMARY KEY (id_produto)
 );
