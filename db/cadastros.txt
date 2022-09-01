@@ -1,8 +1,8 @@
 CREATE TABLE cadastros (
-    login VARCHAR(255) NOT NULL UNIQUE,
+    email VARCHAR(255) NOT NULL UNIQUE,
     senha VARCHAR(50) NOT NULL,
     cliente_id INT(5) NOT NULL,
-        PRIMARY KEY (login)
+        PRIMARY KEY (email)
 );
 
 ALTER TABLE cadastros ADD FOREIGN KEY (cliente_id) REFERENCES clientes (id_cliente);
