@@ -1,0 +1,6 @@
+CREATE TABLE produtos (
+    id_produto INT(6) AUTO_INCREMENT,
+    nome_produto VARCHAR(255) NOT NULL UNIQUE,
+    descricao_produto VARCHAR(255),
+        PRIMARY KEY (id_produto)
+);

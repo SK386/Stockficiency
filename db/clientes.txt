@@ -1,0 +1,6 @@
+CREATE TABLE clientes (
+    id_cliente INT(5) AUTO_INCREMENT,
+    nome_cliente VARCHAR(255) NOT NULL,
+    email_cliente VARCHAR(255) NOT NULL UNIQUE,
+        PRIMARY KEY (id_cliente)
+);
