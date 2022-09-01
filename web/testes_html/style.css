@@ -80,6 +80,6 @@ li a:hover:not(.active) {
 canvas{
 
 	width:100%;
-	max-width:90%;
+	max-width:80%;
 	margin:auto
 }

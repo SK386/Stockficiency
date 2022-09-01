@@ -40,7 +40,7 @@ var barColors = [
 new Chart(Option, {
   type: "pie",
   data: {
-    labels: xValues,
+    labels: xValues,	
     datasets: [{
       backgroundColor: barColors,
       data: yValues
@@ -48,8 +48,7 @@ new Chart(Option, {
   },
   options: {
     title: {
-      display: true,
-      text: "World Wide Wine Production 2018"
+      display: false,
     }
   }
 });
@@ -60,9 +59,6 @@ lineGraf("graf1");
  
 pieGraf("graf2");
 
-lineGraf("graf3");
-
-lineGraf("graf4");
 
 
 var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'))
