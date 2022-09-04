@@ -1,3 +1,6 @@
+/* google fonts yellowtail*/
+
+
 .btn-outline-warning { border: 0px } 
 
 .btn-outline-success{ border: 0px }
@@ -77,3 +80,23 @@ border-color:darkblue;
 body{
 	background-color:#FBF8FB;
 }
+
+ul.dropdown-menu li a:link.dropdown-item{
+	color:white;
+}
+
+ul.dropdown-menu {
+	background-color:#212529;
+
+}
+
+ul.dropdown-menu li a:hover.dropdown-item{
+	color:white;
+	background-color:#0C0C0C;
+}
+
+ul.dropdown-menu li a:visited.dropdown-item{
+	color:#EAE8E8;
+	background-color:#0C0C0C;
+}
+
