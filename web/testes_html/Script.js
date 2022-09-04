@@ -49,11 +49,18 @@ new Chart(Option, {
   options: {
     title: {
       display: false,
-    }
+	},
+	legend: {
+		display: false,
+	},
   }
 });
 
 }
+
+
+
+
 
 lineGraf("graf1");
  
@@ -66,5 +73,35 @@ var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
   return new bootstrap.Popover(popoverTriggerEl)
 })
 
-var Grafbtn = document.getElementById("graf2");
-Grafbtn.style("heigth:10%");
+function grafAnimation() {
+  let id = null;
+  const elem = document.getElementById("graf2container");   
+  let pos = 0;
+  let dim = 20;
+  clearInterval(id);
+  id = setInterval(frame, 5);
+  function frame() {
+    if (pos != 40) {
+      pos++; 
+        elem.style.right = pos + "%"; 
+ 		elem.style.bottom = pos + "%"; 
+	    elem.style.width = dim + "%";	
+	    elem.style.height = dim + "%";	
+    }
+
+	if (pos== 40 && dim != 50){
+	dim++;
+	elem.style.height = dim + "%";	
+	elem.style.width = dim + "%";
+    elem.style.right = 25 + "%"; 
+ 	elem.style.bottom = 25 + "%"; 
+
+	}
+
+	if( pos ==40 && dim ==50){
+		crearInterval(id);
+	}
+ 
+  }
+  	
+}
