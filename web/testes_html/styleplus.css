@@ -38,17 +38,20 @@
 
 #rodape{
 	width:auto;
-	height:52px;
-	background-color:rgb(33, 37, 41);
+	height:10%;
+	background-color:#212529;
 	color:white;
 	text-align:center;
-
+	padding:40px;
+	float:auto;
+	position:relative;
+	top:70px;
 }
 
 #espaço{
 	margin: 0px 10px;	
-	background-color:rgb(22, 22, 186);
-	border-color:rgb(22, 22, 186);
+	background-color:#1616ba;
+	border-color:#1616ba;
 
 }
 
@@ -64,7 +67,10 @@ border-color:darkblue;
 	height:500px;
 	background-color:#FFFFFF;
 	position:relative;
-	margin:auto;
+	margin-left:auto;
+	margin-right:auto;
+	margin-bottom:auto;
+	margin-top:30px;
 	padding:auto;
 }
 
