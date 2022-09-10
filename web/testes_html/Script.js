@@ -73,4 +73,15 @@ var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
   return new bootstrap.Popover(popoverTriggerEl)
 })
 
- document.getElementById("table").InnerHTML = " <tr> <td> 1 </td> <td>  teste </td> <td> 100 </td> <td> R$ 300,00 </td> </tr> ";
+     var x = document.createElement("Table");
+     x.setAttribute("id", "myTable");
+     document.body	.appendChild(x);
+   
+     var y = document.createElement("TR");
+     y.setAttribute("id", "myTr");
+     document.getElementById("myTable").appendChild(y);
+   
+     var z = document.createElement("TD");
+     var t = document.createTextNode("cell");
+     z.appendChild(t);
+     document.getElementById("myTr").appendChild(z);
