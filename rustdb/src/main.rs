@@ -3,7 +3,6 @@ use mysql::*;
 mod func;
 mod func_sql;
 
-
 fn main() {
     let url = "mysql://win:123qwe@192.168.1.7/Stock";
     let pool = Pool::new(url).unwrap();
