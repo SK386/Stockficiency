@@ -16,7 +16,13 @@ function addCell(){
         var content = document.createTextNode(cont);
         TableData.appendChild(content);
         document.getElementById((name + con)).appendChild(TableData);
-    
+        
+        if ((con%2)==1) {
+
+            document.getElementById((name + con)).style.backgroundColor="red";
+            
+        }
+
     } else {
         
         cont = 0;
