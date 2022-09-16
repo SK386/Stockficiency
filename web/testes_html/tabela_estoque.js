@@ -7,14 +7,15 @@ function addCell(){
 
     if (cont<=4) {
 
-        var y = document.createElement("TR");
-        y.setAttribute("id", (name + con));
-        document.getElementById("table").appendChild(y);
+        var TableRow = document.createElement("TR");
+        TableRow.setAttribute("id", (name + con));
+        document.getElementById("table").appendChild(TableRow);
     
-        var z = document.createElement("TD");
-        var t = document.createTextNode("cell");
-        z.appendChild(t);
-        document.getElementById((name + con)).appendChild(z);
+        var TableData = document.createElement("TD");
+        //var content = document.createTextNode(data[cont]);
+        var content = document.createTextNode(cont);
+        TableData.appendChild(content);
+        document.getElementById((name + con)).appendChild(TableData);
     
     } else {
         
