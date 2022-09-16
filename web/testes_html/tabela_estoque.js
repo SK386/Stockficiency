@@ -19,8 +19,12 @@ function addCell(){
         
         if ((con%2)==1) {
 
-            document.getElementById((name + con)).style.backgroundColor="red";
+            document.getElementById((name + con)).style.backgroundColor="gray";
             
+        } else{
+
+            document.getElementById((name + con)).style.backgroundColor="white";
+
         }
 
     } else {

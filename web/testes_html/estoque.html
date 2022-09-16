@@ -9,7 +9,7 @@
 
 
      <title>Stoks_Demo</title>
-	 <!-- <meta http-equiv="refresh" content="2"> -->
+	 <!-- --><meta http-equiv="refresh" content="2"><!-- -->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
      <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
      <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons+">
@@ -106,9 +106,9 @@
 	
 	<div id="body" style="margin-left:45px;padding:5px 5px;height:100%;width:100%; background-color: #c9d3f2; overflow:hidden; z-index:-1; position:fixed; ">
 		<h3>Produtos em estoque:</h3>
-	 	<div class="container-fluid" style="width:80%; border:2px solid black; border-radius:20px; padding:0">
-			<table id="table"  width=100% margin="0"  >
-				<tr>
+	 	<div class="container-fluid" style="width:80%; border:2px solid black; padding:0">
+			<table id="table" width=100% margin="0"  >
+				<tr class="bg-dark" style="color:#FFF">
 					<th>Código</th>
 					<th>Nome</th>	
 					<th>Quantidade</th>
@@ -116,7 +116,16 @@
 				</tr>
 			</table>
 		</div>
-		<a onclick="addCell()">click me!</a>
+		<button id="atualize-btn" class="btn btn-ouline-warning" onclick="addCell()" type="button">
+			<span class="material-icons">
+				refresh
+				</span>
+		</button>
+		<button id>
+			<span class="material-icons">
+				refresh
+				</span>
+		</button>
 				
 	</div>
 	<script src="Script.js"></script>

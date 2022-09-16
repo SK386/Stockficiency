@@ -86,7 +86,6 @@ canvas{
 	
 table {
   font-family: arial, sans-serif;
-  border-collapse: collapse;
   width: 100%;
 }
 
@@ -96,6 +95,23 @@ td, th {
 }
 
 tr:nth-child(odd) {
-  background-color: #FFF;
+  background-color: #656e7d;
 }
 
+h3{
+
+  margin:auto;
+  margin-bottom: 30px;
+  margin-top: 20px;
+  margin-left: 40px;
+
+}
+
+#atualize-btn{
+  
+  position: absolute;
+  right: 5%;
+  bottom: 5%;
+  
+
+}
