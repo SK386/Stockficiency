@@ -1,10 +1,3 @@
-pub struct Empresa {
-    id: u32,
-    nome: String,
-    email: String,
-    senha: String,
-}
-
 pub struct Produto {
     id: u32,
     codigo: String,
