@@ -1,6 +1,5 @@
 use std::io;
-use mysql::*;
-use mysql::prelude::*;
+use mysql::{*, prelude::*};
 
 //CREATE
 pub fn create(conn: &mut PooledConn) {
