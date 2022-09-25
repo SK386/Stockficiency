@@ -29,7 +29,7 @@ pub fn update(conn: &mut PooledConn) {
     conn.exec_drop("UPDATE empresas SET nome_empresa=:b, email=:c, senha=:d WHERE id_empresa=:a", params! {
         "a" => ler_int("Digite o ID da empresa"),
         "b" => ler_string("Digite o novo nome: "),
-        "c" => ler_string("Digite a novo email: "),
+        "c" => ler_string("Digite o novo email: "),
         "d" => ler_string("Digite a nova senha: ")
         }).unwrap();
 }
