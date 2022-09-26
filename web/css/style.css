@@ -40,15 +40,15 @@
 
 
 #rodape{
-	width:auto;
-	height:10%;
+	width:100%;
+	min-height:5%;
 	background-color:#212529;
 	color:white;
 	text-align:center;
 	padding:40px;
 	float:auto;
-	position:relative;
-	top:70px;
+	position:absolute;
+	bottom:0px;
 }
 
 #espaço{
