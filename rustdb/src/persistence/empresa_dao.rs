@@ -1,13 +1,12 @@
-use std::io;
 use mysql::{*, prelude::*};
 
 //CREATE
 pub fn create(conn: &mut PooledConn) {
     conn.exec_drop("INSERT INTO empresas (nome_empresa, email, senha) VALUES (:a, :b, :c)",
         params! {
-            "a" => ler_string("Digite o nome: "),
-            "b" => ler_string("Digite o email: "),
-            "c" => ler_string("Digite a senha: ")
+            "a" => ler_input("Digite o nome: ", "---".to_string()),
+            "b" => ler_input("Digite o email: ", "---".to_string()),
+            "c" => ler_input("Digite a senha: ", "---".to_string())
         }
     ).unwrap();
 }
@@ -26,45 +25,32 @@ pub fn read(conn: &mut PooledConn) {
 //UPDATE
 pub fn update(conn: &mut PooledConn) {
     conn.exec_drop("UPDATE empresas SET nome_empresa=:b, email=:c, senha=:d WHERE id_empresa=:a", params! {
-        "a" => ler_int("Digite o ID da empresa"),
-        "b" => ler_string("Digite o novo nome: "),
-        "c" => ler_string("Digite o novo email: "),
-        "d" => ler_string("Digite a nova senha: ")
+        "a" => ler_input("Digite o ID da empresa", 0i32),
+        "b" => ler_input("Digite o novo nome: ", "---".to_string()),
+        "c" => ler_input("Digite o novo email: ", "---".to_string()),
+        "d" => ler_input("Digite a nova senha: ", "---".to_string()),
         }).unwrap();
 }
 
 //DELETE
 pub fn delete(conn: &mut PooledConn){
     conn.exec_drop("DELETE FROM empresas WHERE id_empresa=:a", params! {
-            "a" => ler_int("Digite o ID da empresa")
+            "a" => ler_input("Digite o ID da empresa", 0)
             }).unwrap();
 
 }
 
 
-//FUNCOES DE LEITURA
-fn ler_string(texto: &str) -> String {
-    let mut n = String::new();
+//FUNCAO DE LEITURA
+fn ler_input<T: std::str::FromStr>(texto: &str, padrao: T) -> T {
 
     println!("{}", texto);
 
-    io::stdin()
-        .read_line(&mut n)
-        .expect("Falha ao ler o input!");
+    let mut input = String::new();
+        std::io::stdin().read_line(&mut input).expect("Falha ao ler o input!");
 
-    n.trim().to_string()
+    match input.trim().parse::<T>() {
+        Ok(input) => input,
+        Err(_) => padrao
+    }
 }
-
-fn ler_int(texto: &str) -> i32 {
-    let mut n = String::new();
-
-    println!("{}", texto);
-
-    io::stdin()
-        .read_line(&mut n)
-        .expect("Falha ao ler o input!");
-
-    n.trim().parse::<i32>().expect("Falha ao converter o input!")
-}
-
-

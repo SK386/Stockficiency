@@ -1,15 +1,14 @@
-use std::io;
 use mysql::{*, prelude::*};
 
 //CREATE
 pub fn create(conn: &mut PooledConn) {
     conn.exec_drop("INSERT INTO produtos (codigo_produto, nome_produto, descricao_produto, qtd_estoque, preco) VALUES (:a, :b, :c, :d, :e)",
         params! {
-            "a" => ler_string("Digite o código: "),
-            "b" => ler_string("Digite o nome: "),
-            "c" => ler_string("Digite a descrição: "),
-            "d" => ler_int("Digite a quantidade em estoque: "),
-            "e" => ler_float("Digite o preço: ")
+            "a" => ler_input("Digite o código: ", "---".to_string()),
+            "b" => ler_input("Digite o nome: ", "---".to_string()),
+            "c" => ler_input("Digite a descrição: ", "---".to_string()),
+            "d" => ler_input("Digite a quantidade em estoque: ", 0i32),
+            "e" => ler_input("Digite o preço: ", 0.0f64)
         }
     ).unwrap();
 }
@@ -28,11 +27,11 @@ pub fn read(conn: &mut PooledConn) {
 //UPDATE
 pub fn update(conn: &mut PooledConn) {
     conn.exec_drop("UPDATE produtos SET nome_produto=:b, descricao_produto=:c, qtd_estoque=:d, preco=:e WHERE codigo_produto=:a", params! {
-        "a" => ler_string("Digite o código do produto"),
-        "b" => ler_string("Digite o novo nome: "),
-        "c" => ler_string("Digite a nova descrição: "),
-        "d" => ler_int("Digite a quantidade em estoque: "),
-        "e" => ler_float("Digite o preço: ")
+        "a" => ler_input("Digite o código do produto", "---".to_string()),
+        "b" => ler_input("Digite o novo nome: ", "---".to_string()),
+        "c" => ler_input("Digite a nova descrição: ", "---".to_string()),
+        "d" => ler_input("Digite a quantidade em estoque: ", 0i32),
+        "e" => ler_input("Digite o preço: ", 0.0f64)
         }
     ).unwrap();
 }
@@ -40,46 +39,23 @@ pub fn update(conn: &mut PooledConn) {
 //DELETE
 pub fn delete(conn: &mut PooledConn){
     conn.exec_drop("DELETE FROM produtos WHERE codigo_produto=:a", params! {
-            "a" => ler_string("Digite o código do produto")
+            "a" => ler_input("Digite o código do produto", "---".to_string())
             }
         ).unwrap();
 
 }
 
 
-//FUNCOES DE LEITURA
-fn ler_string(texto: &str) -> String {
-    let mut n = String::new();
+//FUNCAO DE LEITURA
+fn ler_input<T: std::str::FromStr>(texto: &str, padrao: T) -> T {
 
     println!("{}", texto);
 
-    io::stdin()
-        .read_line(&mut n)
-        .expect("Falha ao ler o input!");
+    let mut input = String::new();
+        std::io::stdin().read_line(&mut input).expect("Falha ao ler o input!");
 
-    n.trim().to_string()
-}
-
-fn ler_int(texto: &str) -> i32 {
-    let mut n = String::new();
-
-    println!("{}", texto);
-
-    io::stdin()
-        .read_line(&mut n)
-        .expect("Falha ao ler o input!");
-
-    n.trim().parse::<i32>().expect("Falha ao converter o input!")
-}
-
-fn ler_float(texto: &str) -> f64 {
-    let mut n = String::new();
-
-    println!("{}", texto);
-
-    io::stdin()
-        .read_line(&mut n)
-        .expect("Falha ao ler o input!");
-
-    n.trim().parse::<f64>().expect("Falha ao converter o input!")
+    match input.trim().parse::<T>() {
+        Ok(input) => input,
+        Err(_) => padrao
+    }
 }
