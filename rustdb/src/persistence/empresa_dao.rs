@@ -13,19 +13,18 @@ pub fn create(conn: &mut PooledConn) -> Result<()>{
 
 //READ
 pub fn read(conn: &mut PooledConn) {
-    let res:Vec<(i32, String, String, String)> = conn.query("SELECT id_empresa, nome_empresa, email, senha FROM empresas")
+    let row: Vec<(u32, String, String, String)> = conn.query("SELECT id_empresa, nome_empresa, email, senha FROM empresas")
         .unwrap();
 
-    for r in res {
-        println!("ID: {}, NOME: {}, EMAIL: {}, SENHA: {}", r.0, r.1, r.2, r.3);
+    for r in row {
+        println!("ID: {} | NOME: {} | EMAIL: {} | SENHA: {}", r.0, r.1, r.2, r.3);
     }
-
 }
 
 //UPDATE
 pub fn update(conn: &mut PooledConn) -> Result<()>{
     conn.exec_drop("UPDATE empresas SET nome_empresa=:b, email=:c, senha=:d WHERE id_empresa=:a", params! {
-        "a" => ler_input::<i32>("Digite o ID da empresa"),
+        "a" => ler_input::<u32>("Digite o ID da empresa"),
         "b" => ler_input::<String>("Digite o novo nome: "),
         "c" => ler_input::<String>("Digite o novo email: "),
         "d" => ler_input::<String>("Digite a nova senha: "),
@@ -36,9 +35,8 @@ pub fn update(conn: &mut PooledConn) -> Result<()>{
 //DELETE
 pub fn delete(conn: &mut PooledConn) {
     conn.exec_drop("DELETE FROM empresas WHERE id_empresa=:a", params! {
-        "a" => ler_input::<i32>("Digite o ID da empresa")
+        "a" => ler_input::<u32>("Digite o ID da empresa")
         }).unwrap();
-
 }
 
 
@@ -54,6 +52,6 @@ fn ler_input<T: std::str::FromStr>(texto: &str) -> Option<T> {
 
     match input.trim().parse::<T>() {
         Ok(input) => Some(input),
-        Err(_e) => None
+        Err(_) => None
     }
 }
