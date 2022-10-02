@@ -25,9 +25,9 @@ fn main() {
                             let opcao = empresa::menu();
                     
                             match opcao {
-                                1 => empresa_dao::create(&mut conn),
+                                1 => empresa_dao::create(&mut conn).unwrap_or_else(|e| eprintln!("Ocorreu um erro: \n{}", e)),
                                 2 => empresa_dao::read(&mut conn),
-                                3 => empresa_dao::update(&mut conn),
+                                3 => empresa_dao::update(&mut conn).unwrap_or_else(|e| eprintln!("Ocorreu um erro: \n{}", e)),
                                 4 => empresa_dao::delete(&mut conn),
                                 5 => break,
                                 _ => ()}
@@ -37,9 +37,9 @@ fn main() {
                             let opcao = produto::menu();
                     
                             match opcao {
-                                1 => produto_dao::create(&mut conn),
+                                1 => produto_dao::create(&mut conn).unwrap_or_else(|e| eprintln!("Ocorreu um erro: \n{}", e)),
                                 2 => produto_dao::read(&mut conn),
-                                3 => produto_dao::update(&mut conn),
+                                3 => produto_dao::update(&mut conn).unwrap_or_else(|e| eprintln!("Ocorreu um erro: \n{}", e)),
                                 4 => produto_dao::delete(&mut conn),
                                 5 => break,
                                 _ => ()}
@@ -62,5 +62,5 @@ pub fn escolher_tabela() -> u8 {
     let mut input = String::new();
         io::stdin().read_line(&mut input).expect("Falha ao ler o input!");
 
-    input.trim().parse::<u8>().unwrap_or_default()
+    input.trim().parse::<u8>().unwrap_or_default()  //default=0
 }
