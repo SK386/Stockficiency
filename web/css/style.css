@@ -41,14 +41,16 @@
 
 #rodape{
 	width:100%;
-	min-height:5%;
+	min-height:8%;
 	background-color:#212529;
 	color:white;
 	text-align:center;
-	padding:40px;
+	padding:20px;
 	float:auto;
 	position:absolute;
-	bottom:0px;
+	bottom:-200px;
+	z-index:3;
+
 }
 
 #espaço{
@@ -66,21 +68,16 @@ border-color:darkblue;
 }
 
 #bodycont{
-	width:700px;
-	height:500px;
-	max-height:1200px;
-	background-color:#FFFFFF;
-	position:relative;
-	margin-left:auto;
-	margin-right:auto;
-	margin-bottom:auto;
-	margin-top:30px;
-	padding:auto;
-
+	margin:10px auto 20px auto;
+	width:60%;
+	height:600px;
+	background-color:white;
+	overflow:auto;
 }
 
 body{
 	background-color:#FBF8FB;
+		
 }
 
 ul.dropdown-menu li a:link.dropdown-item{
@@ -110,7 +107,18 @@ div#bodycont h2{
 }
 
 .membros{
-	border: solid 2px white;
-	background-color:black;
-	border-radius:100%;
+
+list-style-type:none;
+/*border:2px solid black;*/
+height:auto;
+width:auto;
+float:left;
 }
+
+.membros img{
+
+border-radius:8%;
+width:148px;
+height:148px;
+}
+
