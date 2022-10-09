@@ -1,7 +1,7 @@
 /* google fonts yellowtail*/
 
 
-.btn-outline-warning { border: 0px } 
+.btn-outline-warning { border: 0px }
 
 .btn-outline-success{ border: 0px }
 
@@ -18,7 +18,7 @@
     width:70px ;
     position: fixed ;
     top: 0 ;
-    left: 0 ;     
+    left: 0 ;
     padding-top: 20px ;
 	}
 
@@ -48,13 +48,13 @@
 	padding:20px;
 	float:auto;
 	position:absolute;
-	bottom:-200px;
+	bottom:-70%;
 	z-index:3;
 
 }
 
 #espaço{
-	margin: 0px 10px;	
+	margin: 0px 10px;
 	background-color:#1616ba;
 	border-color:#1616ba;
 
@@ -77,7 +77,7 @@ border-color:darkblue;
 
 body{
 	background-color:#FBF8FB;
-		
+
 }
 
 ul.dropdown-menu li a:link.dropdown-item{
@@ -99,7 +99,7 @@ ul.dropdown-menu li a:visited.dropdown-item{
 	background-color:#0C0C0C;
 }
 div#bodycont h2{
-	font-size:50px;	
+	font-size:50px;
 	text-align:center;
 	font-family:"Roboto", serif;
 	padding-top:20px;
@@ -128,4 +128,20 @@ margin:10px auto;
 border:4px solid #2C684E;
 }
 
+footer .footer-social{
+	float:right;
+}
+footer ul{
+list-style-type:none;
 
+}
+footer div img{
+	float: left;
+	position: relative;
+	left:0;
+	margin-top:5vh;
+}
+footer p , footer ul{
+	margin:auto;
+	padding:auto;
+}
