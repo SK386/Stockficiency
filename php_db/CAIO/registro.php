@@ -11,9 +11,8 @@ include('conexao.php');
 
         $sql = "SELECT * FROM empresas WHERE email='$email'";
             $consulta = mysqli_query($mysqli, $sql);
-                $cons_email = mysqli_fetch_array($consulta)["email"];
 
-        if ($cons_email == $email) {
+        if (mysqli_num_rows($consulta) != 0) {
             echo "Email já cadastrado!";
         
         } else {

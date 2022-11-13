@@ -13,9 +13,8 @@ include('conexao.php');
 
         $sql = "SELECT * FROM produtos WHERE codigo_produto='$cod_a'";
             $consulta = mysqli_query($mysqli, $sql);
-                $cons_cod = mysqli_fetch_array($consulta);
 
-        if ($cons_cod == false) {
+        if (mysqli_num_rows($consulta) == 0) {
             echo "Código não encontrado!";
         
         } else {
