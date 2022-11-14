@@ -6,8 +6,8 @@ include('conexao.php');
     $qtd = $_POST['qtd'];
     $preco =  $_POST['preco'];
 
-    if(strlen($nome) == 0 || strlen($cod_a) == 0 || strlen($qtd) == 0 || strlen($preco) == 0) {
-        echo "Preencha todos os campos!";
+    if(strlen($cod_a) == 0) {
+        echo "Preencha todos os campos obrigatórios!";
     
     } else {
 
@@ -15,9 +15,16 @@ include('conexao.php');
             $consulta = mysqli_query($mysqli, $sql);
 
         if (mysqli_num_rows($consulta) == 0) {
-            echo "Código não encontrado!";
+            echo "Código do produto não encontrado!";
         
         } else {
+            
+            $coluna = mysqli_fetch_array($consulta);
+
+                if(strlen($nome) == 0) { $nome = $coluna["nome_produto"]; }
+                if(strlen($qtd) == 0) { $qtd = $coluna["qtd_estoque"]; }
+                if(strlen($preco) == 0) { $preco = $coluna["preco"]; }
+
             $sql = "UPDATE produtos SET nome_produto='$nome', qtd_estoque=$qtd, preco=$preco WHERE codigo_produto='$cod_a'";
                 mysqli_query($mysqli, $sql);
 
