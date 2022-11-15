@@ -1,0 +1,34 @@
+<HTML>
+    <HEAD>
+        <meta charset="utf-8">
+        <TITLE>Alterar Produto</TITLE>
+    </HEAD>
+
+    <BODY>
+        <h2>Alterar Produto</h2>
+            <form method="POST" action="alterarProduto.php">
+
+                ID do produto que será alterado: <br/>
+                <input type="text" size="10" name="id_antigo" />
+                    <br/><br/>
+                
+                Novo nome*: <br/>
+                <input type="text" size="50" name="nome" />
+                    <br/><br/>
+
+                Nova quantidade em estoque*: <br/>
+                <input type="text" size="10" name="qtd" />
+                    <br/><br/>
+
+                Novo preço* (Utlizar . no lugar de ,): <br/>
+                <input type="text" size="10" name="preco" />
+                    <br/>
+
+                <h5>* - Campo opcional</h5>
+
+                <input type="submit" value="Alterar produto" />
+            </form>
+            
+            <a href="../index.html">Voltar</a>
+    </BODY>
+</HTML>

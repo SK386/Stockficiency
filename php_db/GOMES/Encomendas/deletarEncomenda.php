@@ -1,5 +1,5 @@
 <?php
-include('conexao.php');
+include('../conexao.php');
 
     $cod = $_POST['cod'];
 
@@ -26,6 +26,6 @@ include('conexao.php');
 
 <HTML>
     <BODY>
-        <p><a href="index.html">Voltar</a>
+        <p><a href="../index.html">Voltar</a>
     </BODY>
 </HTML>
