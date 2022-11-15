@@ -9,7 +9,7 @@
         
         <?php
         include "conexao.php";
-            $sql = "SELECT * FROM produtos";
+            $sql = "SELECT * FROM produtos;";
             $consulta = mysqli_query($mysqli, $sql);
         ?>
 

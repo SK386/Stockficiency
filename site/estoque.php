@@ -1,113 +1,5 @@
-
 <?php
-
-//include('conexao.php');
-
-    //header("charset=utf-8");
-	$servidor = "localhost";
-	$usuario = "site";
-	$senha = "dev";
-	$banco = "Stockficiency";
-
-
-	$mysqli = new mysqli($servidor,$usuario, $senha, $banco);
-
-	$mysqli->set_charset("utf8");
-
-	if ($mysqli->connect_errno){
-		echo '<script>console.log("Falha na conexão: '.$mysqli->connect_error.'")</script>';
-    }
-    
-    function listar(){
-    
-    
-    
-    }
-    
-    function modificar(){
-    
-        $id= $_POST['id'];
-        $nome = $_POST['name'];
-        $cod_a = $_POST['cod'];
-        $qtd = $_POST['qtd'];
-        $preco =  $_POST['preco'];
-
-        if(strlen($nome) == 0 || strlen($cod_a) == 0 || strlen($qtd) == 0 || strlen($preco) == 0) {
-            echo "<script>console.log('Preencha todos os campos!')</script>";
-        
-        } else {
-
-            $sql = "SELECT * FROM produtos WHERE id=$id";
-                $consulta = mysqli_query($mysqli, $sql);
-                    $cons_cod = mysqli_fetch_array($consulta);
-
-            if ($cons_cod == false) {
-                echo "<script>console.log('Id($id) não encontrado!')</script>";
-            
-            } else {    
-                $sql = "UPDATE produtos SET name='$nome', qtd=$qtd, preco=$preco WHERE id=$id";
-                    mysqli_query($mysqli, $sql);
-
-                echo "<script>console.log('Produto alterado com sucesso!')</script>";
-            }
-        }
-        
-    }
-    
-    function adicionar(){
-    
-        $nome = $_POST['name'];
-        $cod = $_POST['cod'];
-        $qtd = $_POST['qtd'];
-        $preco =  $_POST['preco'];
-
-        if(strlen($nome) == 0 || strlen($cod) == 0 || strlen($qtd) == 0 || strlen($preco) == 0) {
-            echo "<script>console.log('Preencha todos os campos!')</script>";
-        
-        } else {
-
-            $sql = "SELECT * FROM produtos WHERE cod=$cod";
-                $consulta = mysqli_query($mysqli, $sql);
-                    $cons_cod = mysqli_fetch_array($consulta);
-
-            if ($cons_cod == true) {
-                echo "<script>console.log('Código já cadastrado! Por favor, insira um código diferente.')</script>";
-            
-            } else {
-
-                $sql = "INSERT INTO produtos(cod,name,qtd,preco) VALUES ($cod, '$nome', $qtd, $preco);";
-                    mysqli_query($mysqli, $sql);
-
-                echo "<script>console.log('Produto cadastrado com sucesso!')</script>";
-            }
-        }
-    }
-    
-    function deletar(){
-    
-        $cod = $_POST['cod'];
-
-        if(strlen($cod) == 0) {
-            echo "<script>console.log('Preencha o campo do código!')</script>";
-        
-        } else {
-
-            $sql = "SELECT * FROM produtos WHERE cod=$cod;";
-                $consulta = mysqli_query($mysqli, $sql);
-                    $cons_cod = mysqli_fetch_array($consulta);
-
-            if ($cons_cod == false) {
-                echo "<script>console.log('Produto não encontrado!')</script>";
-            
-            } else {
-
-                $sql = "DELETE FROM produtos WHERE cod=$cod";
-                    mysqli_query($mysqli, $sql);
-
-                echo "<script>console.log('Produto deletado com sucesso!')</script>";
-            }
-        }
-    }
+include('php_arquivos/conexao.php');
 ?>
 
 <head>
@@ -130,7 +22,7 @@
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 	
 	<?php
-        echo(readfile('side_bar.html'));
+        readfile('side_bar.html');
 	?>
 	
 	<div id="body" style="margin-left:45px;padding:5px 5px;height:100%;width:100%; overflow:hidden; position:fixed;">
@@ -166,10 +58,10 @@
                     $i = 0;
                     $table_content = "";
                     while ($linha = mysqli_fetch_array($consulta)) {
-                        $id=$linha["id"];
-                        $cod=$linha["cod"];
-                        $name=$linha["name"];
-                        $qtd=$linha["qtd"];
+                        $id=$linha["id_produto"];
+                        $cod=$linha["codigo_produto"];
+                        $name=$linha["nome_produto"];
+                        $qtd=$linha["qtd_estoque"];
                         $preco=$linha["preco"];
                         $table_content .= '<tr id="'.$id.'" onClick="pre_modificar('.$id.')" data-bs-toggle="offcanvas" data-bs-target="#register-div">';
                         $table_content .= "
@@ -188,23 +80,7 @@
 			</table>
 		</div>
 
-		<?php 
-
-    if(isset($_POST['adicionar'])){
-        adicionar();
-    }
-    
-    if(isset($_POST['modificar'])){
-        modificar();
-    }
-    
-    if(isset($_POST['deletar'])){
-        deletar();
-    }
-
-?>
-		
-		<button id="atualize-btn" class="btn func-btn btn-outline-warning" onclick="addTR()" type="button">
+		<button id="atualize-btn" class="btn func-btn btn-outline-warning" onclick="refresh()" type="button">
 			<span class="material-icons span-func">
 				refresh
             </span>
@@ -227,28 +103,28 @@
 			<form class="form bg-light" method="POST" action="estoque.php" id="register-form">
 				<input name="id" type="hidden" id="id" value="" />
 				<div class="box">
-					<input type="text" name="cod" id="cod" required />
+					<input type="text" name="cod" id="cod"/>
 					<label for="cod">Codigo</label>
 				</div>
 				
 				<div id="cod_" style="display:none; color:red; text-align: center; margin-top:-15px">* código inválido *</div>
 
 				<div class="box">
-					<input type="text" id="name" name="name" required/>
+					<input type="text" id="name" name="nome"/>
 					<label for="name">Nome</label>
 				</div>
 
 				<div id="name_" style="display:none; color:red; text-align: center; margin-top:-15px">* nome inválido *</div>
 				
 				<div class="box">
-					<input type="text" id="qtd" name="qtd" required/>
+					<input type="text" id="qtd" name="qtd"/>
 					<label for="qtd">Quantidade</label>
 				</div>				
 				
 				<div id="qtd_" style="display:none; color:red; text-align: center; margin-top:-15px">* quantidade inválida *</div>
 
 				<div class="box">
-					<input type="text" id="preco" name="preco" required/>
+					<input type="text" id="preco" name="preco"/>
 					<label for="preco">Preço</label>
 				</div>		
 				

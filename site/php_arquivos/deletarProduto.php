@@ -3,10 +3,6 @@ include('conexao.php');
 
     $cod = $_POST['cod'];
 
-    if(strlen($cod) == 0) {
-        echo "Preencha o campo do código!";
-    
-    } else {
 
         $sql = "SELECT * FROM produtos WHERE codigo_produto='$cod'";
             $consulta = mysqli_query($mysqli, $sql);
@@ -20,6 +16,8 @@ include('conexao.php');
                 mysqli_query($mysqli, $sql);
 
             echo "Produto deletado com sucesso!";
+            
+            header("Location: ../estoque.php");
         }
     }
 ?>

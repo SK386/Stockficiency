@@ -2,10 +2,16 @@
 include('conexao.php');
 
     $nome = $_POST['nome'];
-    $cod_a = $_POST['cod_antigo'];
+    $cod_a = $_POST['cod'];
     $qtd = $_POST['qtd'];
     $preco =  $_POST['preco'];
 
+    echo "
+    $cod \n
+    $nome \n
+    $qtd \n
+    $preco \n";
+    
     if(strlen($nome) == 0 || strlen($cod_a) == 0 || strlen($qtd) == 0 || strlen($preco) == 0) {
         echo "Preencha todos os campos!";
         
@@ -23,6 +29,7 @@ include('conexao.php');
                
             
             echo "Produto alterado com sucesso!";
+            
         }
     }
 ?>

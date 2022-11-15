@@ -89,6 +89,8 @@ function modificar(){
             document.getElementById("modificar").style.display = 'none';
             document.getElementById("salvar").style.display = "block";
 
+            
+            document.getElementById("register-form").action = "php_arquivos/alterarProduto.php";
             document.getElementById("submit-mod").click();
             
         }   
@@ -97,6 +99,7 @@ function modificar(){
 
 
 function deletar(){
+    document.getElementById("register-form").action = "php_arquivos/deletarProduto.php";
 	document.getElementById("submit-del").click();
 }
 
@@ -163,6 +166,7 @@ function adicionar(){
     
     if ( preco_ == true && cod_ == true && qtd_ == true && name_ == true) {
 
+        document.getElementById("register-form").action = "php_arquivos/cadastrarProduto.php";
         document.getElementById("submit-add").click();
         
     }
@@ -174,4 +178,9 @@ function leave(){
     }else{
         this.offsetParent.className = 'box';
     }
+}
+
+function refresh(){
+    console.log('oi')/
+    document.getElementById("submit-add").click();
 }

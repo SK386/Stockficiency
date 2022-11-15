@@ -25,6 +25,7 @@ include("conexao.php");
                 mysqli_query($mysqli, $sql);
 
             echo "Produto cadastrado com sucesso!";
+            header("Location: ../estoque.php");
         }
     }
 ?>
