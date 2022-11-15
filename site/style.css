@@ -223,3 +223,25 @@ h3{
     text-decoration:none;
     box-shadow:5px 5px 15px #343a40
 }
+
+.alerta{
+    display:none;
+    box-shadow: 4px 5px 9px #343a40;
+    border-radius:20px;
+    z-index:-70;
+    width:50%;
+    height:min-content;
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%, -50%);
+    background-color:#FFF;
+    padding:20px;
+}
+
+.popup-btn{
+    position:absolute;
+    bottom:5%;
+    right:5%;
+    color:#343a40;
+}

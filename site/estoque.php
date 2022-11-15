@@ -1,5 +1,8 @@
 <?php
+session_start();
 include('php_arquivos/conexao.php');
+
+
 ?>
 
 <head>
@@ -20,6 +23,7 @@ include('php_arquivos/conexao.php');
     <script src="tabela.js"></script>
     
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
 	
 	<?php
         readfile('side_bar.html');
@@ -27,6 +31,12 @@ include('php_arquivos/conexao.php');
 	
 	<div id="body" style="margin-left:45px;padding:5px 5px;height:100%;width:100%; overflow:hidden; position:fixed;">
 
+<div class="alerta" id="Alert">
+        <h3>Alerta</h3>
+        <p style="text-align:center; padding-bottom:20px;" id="msg"></p>
+        <button onClick="popup('',2)" class="btn popup-btn btn-outline-warning">close</button>
+</div>
+	
 		<h3 id="estoque">Estoque:</h3>
 
 		<div style="height:55px" class="offcanvas offcanvas-end" id="pesquisa">
@@ -43,7 +53,6 @@ include('php_arquivos/conexao.php');
 			<table  id="table" width=100%  >
 			
 				<thead>
-					<th style="width:20%">Código</th>
 					<th>Nome</th>	
 					<th style="width:17%">Quantidade</th>
 					<th style="width:17%">Preço</th>
@@ -58,15 +67,13 @@ include('php_arquivos/conexao.php');
                     $i = 0;
                     $table_content = "";
                     while ($linha = mysqli_fetch_array($consulta)) {
-                        $id=$linha["id_produto"];
-                        $cod=$linha["codigo_produto"];
+                        $id=$linha["id_produtos"];
                         $name=$linha["nome_produto"];
                         $qtd=$linha["qtd_estoque"];
                         $preco=$linha["preco"];
                         $table_content .= '<tr id="'.$id.'" onClick="pre_modificar('.$id.')" data-bs-toggle="offcanvas" data-bs-target="#register-div">';
                         $table_content .= "
                                 <td id='$id-id' class='id'>$id</td>\n
-                                <td id='$id-cod'>$cod</td>\n
                                 <td id='$id-name'>$name</td>\n
                                 <td id='$id-qtd'>$qtd</td>\n
                                 <td id='$id-preco'>$preco</td>\n
@@ -79,7 +86,7 @@ include('php_arquivos/conexao.php');
 				
 			</table>
 		</div>
-
+    
 		<button id="atualize-btn" class="btn func-btn btn-outline-warning" onclick="refresh()" type="button">
 			<span class="material-icons span-func">
 				refresh
@@ -101,13 +108,10 @@ include('php_arquivos/conexao.php');
 			<button onClick="normal()" id="funfa" style="width:100%; height:100%; background-color:rgb(0,0,0, 0.01); border: 0px;"></button>
 			
 			<form class="form bg-light" method="POST" action="estoque.php" id="register-form">
-				<input name="id" type="hidden" id="id" value="" />
-				<div class="box">
-					<input type="text" name="cod" id="cod"/>
-					<label for="cod">Codigo</label>
-				</div>
+				<input name="id_produto" type="hidden" id="id" value="" />
 				
-				<div id="cod_" style="display:none; color:red; text-align: center; margin-top:-15px">* código inválido *</div>
+				<input name="id_empresa" type="hidden" id="id" value="1" />
+				
 
 				<div class="box">
 					<input type="text" id="name" name="nome"/>
@@ -141,5 +145,14 @@ include('php_arquivos/conexao.php');
 				
 		</div>
 	</div>
+	
+	
 </body>
     
+<?php
+if(isset($_SESSION['msg'])){    
+    echo '<script>popup("'.$_SESSION['msg'].'", 1)</script>';
+    echo "<script>console.log('".$_SESSION['msg']."')</script>";
+    $_SESSION['msg'] = '';
+}
+?>

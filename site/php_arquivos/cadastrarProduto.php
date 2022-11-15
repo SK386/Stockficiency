@@ -1,33 +1,34 @@
 <?php
+session_start();
 include("conexao.php");
 
+    $empresa_id = $_POST['id_empresa'];
     $nome = $_POST['nome'];
-    $cod = $_POST['cod'];
     $qtd = $_POST['qtd'];
-    $preco =  $_POST['preco'];
+    $preco =  str_replace(",", ".", $_POST['preco']);
 
-    echo $nome;
-
-    if(strlen($nome) == 0 || strlen($cod) == 0 || strlen($qtd) == 0 || strlen($preco) == 0) {
-        echo "Preencha todos os campos!";
+    if(strlen($empresa_id) == 0 || strlen($nome) == 0 || strlen($qtd) == 0 || strlen($preco) == 0) {
+        $_SESSION['msg'] =  "Preencha todos os campos!";
     
     } else {
 
-        $sql = "SELECT * FROM produtos WHERE codigo_produto='$cod'";
+        $sql = "SELECT * FROM empresas WHERE id_empresa=$empresa_id";
             $consulta = mysqli_query($mysqli, $sql);
-
-        if (mysqli_num_rows($consulta) != 0) {
-            echo "Código já cadastrado! Por favor, insira um código diferente.";
+    
+        if (mysqli_num_rows($consulta) == 0) {
+            $_SESSION['msg'] =  "ID errado ou empresa inexistente!";
         
         } else {
 
-            $sql = "INSERT INTO produtos (codigo_produto, nome_produto, qtd_estoque, preco) VALUES ('$cod', '$nome', $qtd, $preco);";
-                mysqli_query($mysqli, $sql);
+        $sql = "INSERT INTO produtos (nome_produto, qtd_estoque, preco, empresa_id) VALUES ('$nome', $qtd, $preco, $empresa_id);";
+            mysqli_query($mysqli, $sql);
 
-            echo "Produto cadastrado com sucesso!";
-            header("Location: ../estoque.php");
+        $_SESSION['msg'] = "Produto cadastrado com sucesso!";
         }
     }
+
+
+    header("Location: ../estoque.php");
 ?>
 
 <HTML>
