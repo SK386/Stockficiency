@@ -4,7 +4,7 @@ include('../conexao.php');
     $nome = $_POST['nome'];
     $id_a = $_POST['id_antigo'];
     $qtd = $_POST['qtd'];
-    $preco =  $_POST['preco'];
+    $preco =  str_replace(",", ".", $_POST['preco']);
 
     if(strlen($id_a) == 0) {
         echo "Preencha todos os campos obrigatórios!";

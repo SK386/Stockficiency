@@ -16,6 +16,9 @@ include('../conexao.php');
         
         } else {
 
+            $sql = "DELETE FROM encomendas_produtos WHERE produto_id=$id_p";
+                mysqli_query($mysqli, $sql);
+
             $sql = "DELETE FROM produtos WHERE id_produto=$id_p";
                 mysqli_query($mysqli, $sql);
 
