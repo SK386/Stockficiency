@@ -1,32 +1,37 @@
 <HTML>
     <HEAD>
         <meta charset="utf-8">
-        <TITLE>Alterar Produto</TITLE>
+        <TITLE>Alterar Encomenda</TITLE>
     </HEAD>
 
     <BODY>
-        <h2>Alterar Produto</h2>
-            <form method="POST" action="alterarProduto.php">
+        <h2>Alterar Encomenda</h2>
+            <form method="POST" action="alterarEncomenda1.php">
 
-                Código do produto que será alterado: <br/>
-                <input type="text" size="10" name="cod_antigo" />
+                ID da encomenda que será alterada: <br/>
+                <input type="text" size="10" name="id_encomenda" />
                     <br/><br/>
                 
-                Novo nome*: <br/>
-                <input type="text" size="50" name="nome" />
+                Nova origem*: <br/>
+                <input type="text" size="50" name="origem" />
                     <br/><br/>
 
-                Nova quantidade em estoque*: <br/>
-                <input type="text" size="10" name="qtd" />
+                Novo destino*: <br/>
+                <input type="text" size="50" name="destino" />
                     <br/><br/>
 
-                Novo preço*: <br/>
-                <input type="text" size="10" name="preco" />
+                Novo horário do envio*: <br/>
+                <input type="datetime-local" name="horario" 
+                    min="2000-01-01T00:00" max="2099-12-31T23:59"/>
+                        <br/><br/>
+
+                Nova observação*: <br />
+                <textarea rows="5" cols="38" name="observacao"></textarea>
                     <br/>
 
                 <h5>* - Campo opcional</h5>
 
-                <input type="submit" value="Alterar produto" />
+                <input type="submit" value="Alterar produtos da encomenda" />
             </form>
             
             <a href="../index.html">Voltar</a>

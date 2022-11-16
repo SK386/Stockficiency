@@ -1,11 +1,10 @@
 <HTML>
     <HEAD>
         <meta charset="utf-8">
-        <TITLE>Cadastrar Encomenda</TITLE>
+        <TITLE>Registrar Encomenda</TITLE>
     </HEAD>
 
     <BODY>
-
         <?php 
         include('../conexao.php');
 
@@ -40,10 +39,10 @@
                             $_SESSION['qtd_produtos'] = $qtd_p;
 
                     for ($i = 0; $i < $qtd_p; $i++) {
-            ?>
+                    ?>
                     
-                    <hr>
-                    <h4>Produto n° <?php echo $i+1; ?></h4>
+                        <hr>
+                        <h4>Produto n° <?php echo $i+1; ?></h4>
 
                         ID do produto: <br/>
                         <input type="text" size="20" name="produto_id[<?php $i; ?>]" />
@@ -53,11 +52,11 @@
                         <input type="text" size="20" name="qtd[<?php $i; ?>]" />
                             <br/><br/>
 
-            <?php
+                    <?php
                     }
             ?>
 
-                    <br/><input type="submit" value="Finalizar cadastro" />
+                    <br/><input type="submit" value="Finalizar registro" />
                 </form>
 
             <?php

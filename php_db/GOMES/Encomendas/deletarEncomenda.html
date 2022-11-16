@@ -1,18 +1,20 @@
 <HTML>
     <HEAD>
         <meta charset="utf-8">
-        <TITLE>Deletar Produto</TITLE>
+        <TITLE>Concluir Encomenda</TITLE>
     </HEAD>
 
     <BODY>
-        <h2>Deletar Produto</h2>
-            <form method="POST" action="deletarProduto.php">
+        <h2>Concluir Encomenda</h2>
+            <form method="POST" action="deletarEncomenda.php">
 
-                Digite o código do produto que será deletado: <br/>
-                <input type="text" size="10" name="cod" />
-                    <br/><br/>
+                Digite o ID da encomenda que será marcada como concluída: <br/>
+                <input type="text" size="10" name="id_encomenda" />
+                    <br/>
 
-                <input type="submit" value="Deletar produto" />
+                <h4>Ao concluir uma encomenda, não será mais possível alterar e visualizar seus dados</h4>
+
+                <input type="submit" value="Marcar como concluída" />
             </form>
             
             <a href="../index.html">Voltar</a>
