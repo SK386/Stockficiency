@@ -40,7 +40,6 @@
 
                     for ($i = 0; $i < $qtd_p; $i++) {
                     ?>
-                    
                         <hr>
                         <h4>Produto n° <?php echo $i+1; ?></h4>
 
@@ -54,12 +53,12 @@
 
                     <?php
                     }
-            ?>
+                    ?>
 
                     <br/><input type="submit" value="Finalizar registro" />
                 </form>
 
-            <?php
+        <?php
                 }
             }
         ?>

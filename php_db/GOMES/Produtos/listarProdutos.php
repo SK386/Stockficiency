@@ -13,9 +13,9 @@
             $consulta = mysqli_query($mysqli, $sql);
         ?>
 
-        <table border="1" width="750" cellspacing="0">
+        <table border="1" width="1050" cellspacing="0">
         <tr bgcolor="#BBBBBB">
-        <th>ID</th><th>Nome</th><th>Quantidade</th><th>Preço</th><th>Empresa</th>
+        <th>ID</th><th>Nome</th><th>Quantidade</th><th>Preço</th><th>Validade</th><th>Garantia</th><th>Empresa</th>
         </tr>
 
         <?php
@@ -26,6 +26,8 @@
                 $n=$linha["nome_produto"];
                 $q=$linha["qtd_estoque"];
                 $p=$linha["preco"];
+                $v=$linha["validade"];
+                $g=$linha["garantia"];
                 $e=$linha["empresa_id"];
 
                 if($x % 2 == 0){
@@ -39,6 +41,8 @@
             <td><?php echo $n; ?></td>
             <td><?php echo $q; ?></td>
             <td><?php echo $p; ?></td>
+            <td><?php echo $v; ?></td>
+            <td><?php echo $g; ?></td>
             <td><?php echo $e; ?></td>
         </tr>
         

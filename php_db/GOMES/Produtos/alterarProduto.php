@@ -12,6 +12,8 @@
             $id_a = $_POST['id_antigo'];
             $qtd = $_POST['qtd'];
             $preco =  str_replace(",", ".", $_POST['preco']);
+            $validade = $_POST['validade'];
+            $garantia = $_POST['garantia'];
 
             if(strlen($id_a) == 0) {
                 echo "Preencha todos os campos obrigatórios!";
@@ -32,8 +34,21 @@
                         if(strlen($qtd) == 0) { $qtd = $coluna["qtd_estoque"]; }
                         if(strlen($preco) == 0) { $preco = $coluna["preco"]; }
 
-                    $sql = "UPDATE produtos SET nome_produto='$nome', qtd_estoque=$qtd, preco=$preco WHERE id_produto=$id_a";
-                        mysqli_query($mysqli, $sql);
+                        $validade_vazia = true;
+                        $garantia_vazia = true;
+
+                            if(strlen($validade) == 0) { $validade_vazia = false; }
+                            if(strlen($garantia) == 0) { $garantia_vazia = false; }
+
+                    if ($validade_vazia && $garantia_vazia) { $sql = "UPDATE produtos SET nome_produto='$nome', qtd_estoque=$qtd, preco=$preco WHERE id_produto=$id_a";
+                    
+                        } else if ($validade_vazia) { $sql = "UPDATE produtos SET nome_produto='$nome', qtd_estoque=$qtd, preco=$preco, garantia='$garantia' WHERE id_produto=$id_a";
+                            
+                            } else if ($garantia_vazia) { $sql = "UPDATE produtos SET nome_produto='$nome', qtd_estoque=$qtd, preco=$preco, garantia='$garantia' WHERE id_produto=$id_a";
+                                
+                                } else { $sql = "UPDATE produtos SET nome_produto='$nome', qtd_estoque=$qtd, preco=$preco, validade='$validade', garantia='$garantia' WHERE id_produto=$id_a";}
+                    
+                    mysqli_query($mysqli, $sql);
 
                     echo "Produto alterado com sucesso!";
                 }
