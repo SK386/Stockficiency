@@ -10,7 +10,7 @@ CREATE TABLE financas (
 );
 
 CREATE TABLE financas (
-	data_ DATE NOT NULL, #'AAAA-MM-DD'
+	periodo DATE NOT NULL, #'AAAA-MM-DD'
 	ganhos INT UNSIGNED NOT NULL,
 	despesas INT UNSIGNED NOT NULL,
   	
