@@ -1,0 +1,39 @@
+<HTML>
+    <HEAD>
+        <meta charset="utf-8">
+        <TITLE>Alterar Encomenda</TITLE>
+    </HEAD>
+
+    <BODY>
+        <h2>Alterar Encomenda</h2>
+            <form method="POST" action="alterarEncomenda1.php">
+
+                ID da encomenda que será alterada: <br/>
+                <input type="text" size="10" name="id_encomenda" />
+                    <br/><br/>
+                
+                Nova origem*: <br/>
+                <input type="text" size="50" name="origem" />
+                    <br/><br/>
+
+                Novo destino*: <br/>
+                <input type="text" size="50" name="destino" />
+                    <br/><br/>
+
+                Novo horário do envio*: <br/>
+                <input type="datetime-local" name="horario" 
+                    min="2000-01-01T00:00" max="2099-12-31T23:59"/>
+                        <br/><br/>
+
+                Nova observação*: <br />
+                <textarea rows="5" cols="38" name="observacao"></textarea>
+                    <br/>
+
+                <h5>* - Campo opcional</h5>
+
+                <input type="submit" value="Alterar produtos da encomenda" />
+            </form>
+            
+            <a href="../index.html">Voltar</a>
+    </BODY>
+</HTML>

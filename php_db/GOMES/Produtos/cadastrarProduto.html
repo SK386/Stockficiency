@@ -1,0 +1,45 @@
+<HTML>
+    <HEAD>
+        <meta charset="utf-8">
+        <TITLE>Cadastrar Produto</TITLE>
+    </HEAD>
+
+    <BODY>
+        <h2>Cadastrar Produto</h2>
+            <form method="POST" action="cadastrarProduto.php">
+
+                ID da sua empresa: <br/>
+                <input type="text" size="50" name="empresa_id" />
+                    <br/><br/>
+                
+                Nome do produto: <br/>
+                <input type="text" size="50" name="nome" />
+                    <br/><br/>
+
+                Quantidade em estoque: <br/>
+                <input type="text" size="10" name="qtd" />
+                    <br/><br/>
+
+                Preço: <br/>
+                <input type="text" size="10" name="preco" />
+                    <br/><br/>
+
+                Validade*: <br/>
+                <input type="date" name="validade" 
+                    min="2000-01-01" max="2099-12-31"/>
+                        <br/><br/>
+                
+                Garantia*: <br/>
+                <input type="date" name="garantia" 
+                    min="2000-01-01" max="2099-12-31"/>
+                        <br/>
+
+                <h5>* - Campo opcional</h5>
+
+                <input type="submit" value="Cadastrar produto" />
+            </form>
+            
+            <a href="../index.html">Voltar</a>
+    </BODY>
+</HTML>
+

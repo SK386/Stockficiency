@@ -1,0 +1,42 @@
+<HTML>
+    <HEAD>
+        <meta charset="utf-8">
+        <TITLE>Registrar Encomenda</TITLE>
+    </HEAD>
+
+    <BODY>
+        <h2>Registrar Encomenda</h2>
+            <form method="POST" action="cadastrarEncomenda1.php">
+
+                ID da sua empresa: <br/>
+                <input type="text" size="50" name="empresa_id" />
+                    <br/><br/>
+                
+                Origem: <br/>
+                <input type="text" size="50" name="origem" />
+                    <br/><br/>
+
+                Destino: <br/>
+                <input type="text" size="50" name="destino" />
+                    <br/><br/>
+
+                Data e horário do envio: <br/>
+                <input type="datetime-local" name="horario" 
+                    min="2000-01-01T00:00" max="2099-12-31T23:59"/>
+                        <br/><br/>
+
+                Observação (opcional): <br />
+                <textarea rows="5" cols="38" name="observacao"></textarea>
+                    <br/><br/>
+
+                Quantidade de produtos diferentes encomendados: <br/>
+                <input type="text" size="10" name="qtd_produtos" />
+                    <br/><br/>
+
+                <input type="submit" value="Registrar encomenda" />
+            </form>
+            
+            <a href="../index.html">Voltar</a>
+    </BODY>
+</HTML>
+
