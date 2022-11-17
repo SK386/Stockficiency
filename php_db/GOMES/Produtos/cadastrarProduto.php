@@ -25,7 +25,6 @@
             
                 if (mysqli_num_rows($consulta) == 0) {
                     echo "O ID da empresa não foi encontrado!";
-                    echo $validade;
                 
                 } else {
 
