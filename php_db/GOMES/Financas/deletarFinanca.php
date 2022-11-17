@@ -1,7 +1,7 @@
 <HTML>
     <HEAD>
         <meta charset="utf-8">
-        <TITLE>Deletar Produto</TITLE>
+        <TITLE>Deletar Registro</TITLE>
     </HEAD>
 
     <BODY>
@@ -9,27 +9,25 @@
         include('../conexao.php');
 
             $empresa_id = $_POST['empresa_id'];
-            $ano = $_POST['ano'];
-            $mes = $_POST['mes'];
+            $periodo = $_POST['periodo'];
 
-            if(strlen($empresa_id) == 0 || strlen($ano) == 0 || strlen($mes) == 0 ) {
+            if(strlen($empresa_id) == 0 || strlen($periodo) == 0) {
                 echo "Preencha todos os campos!";
             
             } else {
 
-                $sql = "SELECT * FROM financas WHERE empresa_id=$empresa_id AND ano=$ano AND mes=$mes";
+                $sql = "SELECT * FROM financas WHERE periodo='$periodo' AND empresa_id=$empresa_id";
                     $consulta = mysqli_query($mysqli, $sql);
 
                 if (mysqli_num_rows($consulta) == 0) {
-                    echo "Valores não encontrados!";
+                    echo "Registro não encontrado!";
                 
                 } else {
 
-
-                    $sql = "DELETE FROM financas WHERE empresa_id=$empresa_id AND ano=$ano AND mes=$mes";
+                    $sql = "DELETE FROM financas WHERE periodo='$periodo' AND empresa_id=$empresa_id";
                         mysqli_query($mysqli, $sql);
 
-                    echo "Valores deletados com sucesso!";
+                    echo "Registro deletado com sucesso!";
                 }
             }
         ?>

@@ -1,27 +1,22 @@
 <HTML>
     <HEAD>
         <meta charset="utf-8">
-        <TITLE>Deletar Valores</TITLE>
+        <TITLE>Deletar Registro</TITLE>
     </HEAD>
 
     <BODY>
-        <h2>Deletar Valores</h2>
+        <h2>Deletar Registro</h2>
             <form method="POST" action="deletarFinanca.php">
 
                 ID da sua empresa: <br/>
                 <input type="text" size="10" name="empresa_id" />
                     <br/><br/>
 
-                Ano do registro que será apagado: <br/>
-                <input type="text" size="10" name="ano" />
+                Período do registro que será deletado: <br/>
+                <input type="date" name="periodo" min="2000-01-01" max="2099-12-31" />
                     <br/><br/>
 
-                Mês do registro que será apagado: <br/>
-                <input type="text" size="10" name="mes"/>
-                <br/><br/>
-
-
-                <input type="submit" value="Deletar valor" />
+                <input type="submit" value="Deletar registro" />
             </form>
             
             <a href="../index.html">Voltar</a>

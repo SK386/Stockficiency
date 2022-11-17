@@ -1,37 +1,31 @@
 <HTML>
     <HEAD>
         <meta charset="utf-8">
-        <TITLE>Declarar valores</TITLE>
+        <TITLE>Registrar Valor</TITLE>
     </HEAD>
 
     <BODY>
-        <h2>Declarar valores</h2>
+        <h2>Registrar Valor</h2>
             <form method="POST" action="cadastrarFinanca.php">
 
                 ID da sua empresa: <br/>
                 <input type="text" size="10" name="empresa_id" />
+                    <br/><br/>
+
+                Período: <br/>
+                <input type="date" name="periodo" min="2000-01-01" max="2099-12-31" />
+                    <br/><br/>
+
+                Ganhos: <br/>
+                <input type="text" size="10" name="ganhos" />
                     <br/><br/>
                 
                 Despesas: <br/>
                 <input type="text" size="10" name="despesas" />
                     <br/><br/>
 
-                Ganhos: <br/>
-                <input type="text" size="10" name="ganhos" />
-                    <br/><br/>
 
-                Ano: <br/>
-                <input type="text" size="10" name="ano" />
-                    <br/><br/>
-
-                Mês: <br/>
-                <input type="text" size="10" name="mes" 
-                   />
-                        <br/><br/>
-                
-
-
-                <input type="submit" value="Declarar valores" />
+                <input type="submit" value="Registrar valor" />
             </form>
             
             <a href="../index.html">Voltar</a>

@@ -1,39 +1,33 @@
 <HTML>
     <HEAD>
         <meta charset="utf-8">
-        <TITLE>Alterar Valores</TITLE>
+        <TITLE>Alterar Registros</TITLE>
     </HEAD>
 
     <BODY>
-        <h2>Alterar Valores</h2>
+        <h2>Alterar Registros</h2>
             <form method="POST" action="alterarFinanca.php">
 
                 ID da sua empresa: <br/>
                 <input type="text" size="10" name="empresa_id" />
                     <br/><br/>
 
-                Ano do registro que será alterado: <br/>
-                <input type="text" size="10" name="ano" />
-                    <br/><br/>
-
-                Mês do registro que será alterado: <br/>
-                <input type="text" size="10" name="mes"/>
-                <br/><br/>
-                
-                Novas Despesas*: <br/>
-                <input type="text" size="10" name="despesas" />
+                Período do registro que será alterado: <br/>
+                <input type="date" name="periodo" min="2000-01-01" max="2099-12-31" />
                     <br/><br/>
 
                 Novos Ganhos*: <br/>
                 <input type="text" size="10" name="ganhos" />
                     <br/><br/>
 
+                Novas Despesas*: <br/>
+                <input type="text" size="10" name="despesas" />
+                    <br/>
                     
-        
 
                 <h5>* - Campo opcional</h5>
 
-                <input type="submit" value="Alterar produto" />
+                <input type="submit" value="Alterar registro" />
             </form>
             
             <a href="../index.html">Voltar</a>

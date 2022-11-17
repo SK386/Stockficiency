@@ -1,11 +1,11 @@
 <HTML>
     <HEAD>
         <meta charset="utf-8">
-        <TITLE>Listar Valores</TITLE>
+        <TITLE>Listar Registros</TITLE>
     </HEAD>
 
     <BODY>
-        <h2>Listar Valores</h2>
+        <h2>Listar Registros</h2>
         
         <?php
         include "../conexao.php";
@@ -13,19 +13,18 @@
             $consulta = mysqli_query($mysqli, $sql);
         ?>
 
-        <table border="1" width="750" cellspacing="0">
+        <table border="1" width="500" cellspacing="0">
         <tr bgcolor="#BBBBBB">
-        <th>Mes</th><th>Ano</th><th>Despesas</th><th>Ganhos</th><th>Empresa</th>
+        <th>Período</th><th>Ganhos</th><th>Despesas</th><th>Empresa</th>
         </tr>
 
         <?php
             $x = 0;
             
             while ($linha = mysqli_fetch_array($consulta)) {
-                $a=$linha["ano"];
-                $m=$linha["mes"];
-                $d=$linha["despesas"];
+                $p= $linha["periodo"];
                 $g=$linha["ganhos"];
+                $d=$linha["despesas"];
                 $e=$linha["empresa_id"];
 
                 if($x % 2 == 0){
@@ -35,10 +34,9 @@
                 }
         ?>
         <tr bgcolor="<?php echo $cor; ?>">
-            <td><?php echo $m; ?></td>
-            <td><?php echo $a; ?></td>
-            <td><?php echo $d; ?></td>
+            <td><?php echo $p; ?></td>
             <td><?php echo $g; ?></td>
+            <td><?php echo $d; ?></td>
             <td><?php echo $e; ?></td>
         </tr>
         
