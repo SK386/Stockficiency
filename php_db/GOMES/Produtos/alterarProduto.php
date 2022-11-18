@@ -34,19 +34,24 @@
                         if(strlen($qtd) == 0) { $qtd = $coluna["qtd_estoque"]; }
                         if(strlen($preco) == 0) { $preco = $coluna["preco"]; }
 
-                        $validade_vazia = true;
-                        $garantia_vazia = true;
+                        $validade_vazia = false;
+                        $garantia_vazia = false;
 
-                            if(strlen($validade) == 0) { $validade_vazia = false; }
-                            if(strlen($garantia) == 0) { $garantia_vazia = false; }
+                            if(strlen($validade) == 0) { $validade_vazia = true; }
+                            if(strlen($garantia) == 0) { $garantia_vazia = true; }
 
-                    if ($validade_vazia && $garantia_vazia) { $sql = "UPDATE produtos SET nome_produto='$nome', qtd_estoque=$qtd, preco=$preco WHERE id_produto=$id_a";
+                    if ($validade_vazia && $garantia_vazia) { 
+                        $sql = "UPDATE produtos SET nome_produto='$nome', qtd_estoque=$qtd, preco=$preco WHERE id_produto=$id_a";
                     
-                        } else if ($validade_vazia) { $sql = "UPDATE produtos SET nome_produto='$nome', qtd_estoque=$qtd, preco=$preco, garantia='$garantia' WHERE id_produto=$id_a";
-                            
-                            } else if ($garantia_vazia) { $sql = "UPDATE produtos SET nome_produto='$nome', qtd_estoque=$qtd, preco=$preco, garantia='$garantia' WHERE id_produto=$id_a";
+                        } else if ($validade_vazia) { 
+                            $sql = "UPDATE produtos SET nome_produto='$nome', qtd_estoque=$qtd, preco=$preco, garantia='$garantia' WHERE id_produto=$id_a";
                                 
-                                } else { $sql = "UPDATE produtos SET nome_produto='$nome', qtd_estoque=$qtd, preco=$preco, validade='$validade', garantia='$garantia' WHERE id_produto=$id_a";}
+                            } else if ($garantia_vazia) { 
+                                $sql = "UPDATE produtos SET nome_produto='$nome', qtd_estoque=$qtd, preco=$preco, validade='$validade' WHERE id_produto=$id_a";
+                                        
+                                } else { 
+                                    $sql = "UPDATE produtos SET nome_produto='$nome', qtd_estoque=$qtd, preco=$preco, validade='$validade', garantia='$garantia' WHERE id_produto=$id_a";
+                                }
                     
                     mysqli_query($mysqli, $sql);
 
