@@ -1,10 +1,10 @@
 <?php
 
 	//header("charset=utf-8");
-	$servidor = "localhost";
-	$usuario = "testes";
-	$senha = "pass";
-	$banco = "Stockficiency";
+	$servidor = "stockficiency.cljvgkc6ypdt.us-east-1.rds.amazonaws.com";
+	$usuario = "site";
+	$senha = "123qwe";
+	$banco = "stockficiency";
 
 
 	$mysqli = new mysqli($servidor,$usuario, $senha, $banco);
