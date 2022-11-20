@@ -1,0 +1,39 @@
+    <form style="display:block" class="form bg-light" method="POST" action="php_arquivos/encomendas/cadastrarEncomenda1.php" id="register-form">
+				<input name="id_encomenda" type="hidden" id="id_enc" value="" />
+				
+				<input name="empresa_id" type="hidden" id="id" value="1" />
+				
+
+				<div class="box">
+					<input type="text" id="origem" name="origem" required/>
+					<label for="origem">Origem</label>
+				</div>
+				
+				<div class="box">
+					<input type="text" id="destino" name="destino" required/>
+					<label for="destino">Destino</label>
+				</div>
+
+				<div class="box">
+					<input type="datetime-local" name="horario" id="horario"
+                    min="2000-01-01T00:00" max="2099-12-31T23:59" required/>
+					<label for="horario">Envio em:</label>
+				</div>
+				
+				<div class="box" id="qtdp_box">
+					<input type="text" id="qtd_produtos" name="qtd_produtos"/>
+					<label for="qtd_produtos">Quantidade de produto:</label>
+				</div>
+				
+				<div class="box">
+					<input type="text" id="observacao" name="observacao">
+					<label for="observacao">Observação</label>
+				</div>
+
+				<div class="per"><a id="salvar" name="adicionar" class="button" onClick="adicionar()" type="button" value="adicionar">Adicionar</a></div>
+				<input name="adicionar" class="id" id="submit-add" type="submit"/>
+				<div class="per"><a id="modificar" class="button"  type="button">Modificar</a></div>
+				<input name="modificar" class="id" id="submit-mod" type="submit"/>
+				<div class="per"><a id="deletar" class="button"  type="button"  data-bs-toggle="offcanvas" data-bs-target="#register-div">Deletar</a></div>
+				<input name="deletar" class="id" id="submit-del" type="submit"/>
+    </form>
