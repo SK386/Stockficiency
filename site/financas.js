@@ -97,14 +97,16 @@ function refresh(){
 
 function popup(msg, opt){
     
-    console.log("teste");
-    
     if(opt == 1 && msg != ''){
         document.getElementById("Alert").style.display = "block";
+        document.getElementById("alert").style.display = "block";
         document.getElementById('msg').innerHTML = msg;
         document.getElementById("Alert").style.zIndex = "70";
+        document.getElementById("alert").style.zIndex = "60";
     } else if(opt == 2 ){
         document.getElementById("Alert").style.display = "none";
+        document.getElementById("alert").style.display = "none";
         document.getElementById("Alert").style.zIndex = "-70";
+        document.getElementById("alert").style.zIndex = "-70";
     }
 }

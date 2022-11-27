@@ -1,7 +1,7 @@
 <?php
 session_start();
  include "conexao.php";
-            $sql = "SELECT * FROM financas";
+            $sql = "SELECT * FROM financas WHERE empresa_id=" . $_SESSION["empresa"];
             $consulta = mysqli_query($mysqli, $sql);
             
 $dataPoints1 = array();
@@ -91,8 +91,9 @@ function toggleDataSeries(e){
 ?>
 
 
-
+<button id="alert" style="width:100%;height:100%;position:absolute;z-index:-1;display:none;background-color:rgb(0,0,0, 0.01);margin:0px" onClick="popup('',2)"></button>
 <div id="body" style="margin-left:45px;padding:5px 5px;height:100%;width:100%; overflow:hidden; position:fixed;">
+
 
 <div class="alerta" id="Alert">
         <h3>Alerta</h3>
@@ -115,7 +116,7 @@ function toggleDataSeries(e){
                     <tbody id="financas">
                     
                     <?php
-                        $sql = "SELECT * FROM financas ";//WHERE empresa_id=";
+                        $sql = "SELECT * FROM financas WHERE empresa_id=" . $_SESSION["empresa"];
                         $consulta = mysqli_query($mysqli, $sql);
                         
                         $i = 0;
@@ -166,7 +167,7 @@ function toggleDataSeries(e){
 			
 			<form class="form bg-light" method="POST" action="financas.php" id="register-form">
 				
-				<input name="empresa_id" type="hidden" id="id" value="1" />
+				<input name="empresa_id" type="hidden" id="id" value=<?php echo '"'. $_SESSION["empresa"] .'"'; ?> />
 
 				<div class="box">
 					<input type="date" id="periodo" name="periodo" required/>

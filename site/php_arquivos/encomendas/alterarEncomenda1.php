@@ -41,7 +41,7 @@
             
                         $content .='
                         <div class="per"><a id="modificar2" class="button" onClick="modificar2()" type="button">Modificar</a></div>
-                        <input id="submit-mod2" class="id" type="submit" value="Alterar encomenda" />
+                        <input id="submit2" class="id" type="submit" value="Alterar encomenda" />
                                     </form>';
                                     
                         $_SESSION['for'] = $content;

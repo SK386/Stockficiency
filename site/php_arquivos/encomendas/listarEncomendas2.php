@@ -19,7 +19,7 @@
                         <div id='table-div' style='border:1px solid black; padding:0'>
                         <table>
                             <thead>
-                                <th>ID do produto</th>
+                                <th>Produto</th>
                                 <th>Quantidade</th>
                             </thead>
                             <tbody>
@@ -27,11 +27,16 @@
             while ($linha = mysqli_fetch_array($consulta)) {
                 $p=$linha["produto_id"];
                 $q=$linha["quantidade"];
-
+                
+                    $produto = mysqli_query($mysqli,"SELECT * FROM produtos WHERE id_produto=$p");
+                while($prod = mysqli_fetch_array($produto)){
+                $id=$prod["nome_produto"];
                 $content .= "<tr>
-                                    <td>$p</td>
+                                    <td>$id</td>
                                     <td>$q</td>
                             </tr>";
+                            
+                        }
         
                 $x++;
             }

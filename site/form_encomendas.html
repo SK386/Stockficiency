@@ -1,7 +1,7 @@
     <form style="display:block" class="form bg-light" method="POST" action="php_arquivos/encomendas/cadastrarEncomenda1.php" id="register-form">
 				<input name="id_encomenda" type="hidden" id="id_enc" value="" />
 				
-				<input name="empresa_id" type="hidden" id="id" value="1" />
+				<input name="empresa_id" type="hidden" id="id" value=<?php echo '"'. $_SESSION["empresa"] .'"'; ?> />
 				
 
 				<div class="box">
@@ -21,7 +21,7 @@
 				</div>
 				
 				<div class="box" id="qtdp_box">
-					<input type="text" id="qtd_produtos" name="qtd_produtos"/>
+					<input type="text" id="qtd_produtos" name="qtd_produtos" />
 					<label for="qtd_produtos">Quantidade de produto:</label>
 				</div>
 				
@@ -31,9 +31,9 @@
 				</div>
 
 				<div class="per"><a id="salvar" name="adicionar" class="button" onClick="adicionar()" type="button" value="adicionar">Adicionar</a></div>
-				<input name="adicionar" class="id" id="submit-add" type="submit"/>
+				
 				<div class="per"><a id="modificar" class="button"  type="button">Modificar</a></div>
-				<input name="modificar" class="id" id="submit-mod" type="submit"/>
+            
 				<div class="per"><a id="deletar" class="button"  type="button"  data-bs-toggle="offcanvas" data-bs-target="#register-div">Deletar</a></div>
-				<input name="deletar" class="id" id="submit-del" type="submit"/>
+				<input class="id" id="submit" type="submit"/>
     </form>

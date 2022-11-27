@@ -47,7 +47,7 @@
                     }
                     $content .='
                     <div class="per"><a id="adicionar2" class="button" onClick="adicionar2()" type="button">Modificar</a></div>
-                    <br/><input class="id" type="submit" value="Finalizar registro" />
+                    <br/><input class="id" type="submit" id="submit2" value="Finalizar registro" />
                     </form>';
                     $_SESSION['for'] = $content;
                     echo $_SESSION['for'];

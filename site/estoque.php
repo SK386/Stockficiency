@@ -15,6 +15,37 @@ include('php_arquivos/conexao.php');
      <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
      <link href="styles.css" rel="stylesheet" type="text/css">
      <link href="style_form.css" rel="stylesheet" type="text/css">
+     
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+        
+        <script>
+	$(document).ready(function(){
+		load_data();
+		function load_data(query)
+		{
+			$.ajax({
+			url:"php_arquivos/estoque/listarProdutos.php",
+			method:"POST",
+			data:{query:query},
+			success:function(data)
+			{
+				$('#result').html(data);
+			}
+			});
+		}
+		$('#search').keyup(function(){
+		var search = $(this).val();
+		if(search != '')
+		{
+			load_data(search);
+		}
+		else
+		{
+			load_data();
+		}
+		});
+	});
+	</script>
 
 </head>
 
@@ -29,8 +60,9 @@ include('php_arquivos/conexao.php');
 	<?php
         readfile('side_bar.html');
 	?>
-	
+	<button id="alert" style="width:100%;height:100%;position:absolute;z-index:-1;display:none;background-color:rgb(0,0,0, 0.01);margin:0px" onClick="popup('',2)"></button>
 	<div id="body" style="margin-left:45px;padding:5px 5px;height:100%;width:100%; overflow:hidden; position:fixed;">
+
 
 <div class="alerta" id="Alert">
         <h3>Alerta</h3>
@@ -38,14 +70,13 @@ include('php_arquivos/conexao.php');
         <button onClick="popup('',2)" class="btn popup-btn btn-outline-warning">close</button>
 </div>
 	
-		<h3 id="estoque">Estoque:</h3>
+		<h3 id="estoque">Estque:</h3>
 
-		<div style="height:55px" class="offcanvas offcanvas-end" id="pesquisa">
-			<div style="margin-top:-10px" class="offcanvas-body bg-dark">
-			  	<form class="d-flex">
-		        	<input class="form-control me-2 bg-dark" type="text" placeholder="Search"  >
-		        	<button class="btn btn-success" type="button">Search</button>
-		      	</form>
+		<div style="height:100%; width:100%; background-color:rgb(0,0,0, 0.01)" class="offcanvas offcanvas-end" id="pesquisa">
+		<button type="button" data-bs-toggle="offcanvas" data-bs-target="#pesquisa" style="width:100%; height:100%; background-color:rgb(0,0,233, 0.01); border:0px"></button>
+			<div class="pesq-div bg-light scroll">
+		        	<input type="text" name="search" id="search" placeholder="Search" class="form-control" />
+		      	<div id="result"></div>
 		    </div>
 		</div>
 			
@@ -64,7 +95,7 @@ include('php_arquivos/conexao.php');
 				<tbody id="produtes">
 				
 				<?php
-                    $sql = "SELECT * FROM produtos ";//WHERE empresa_id=";
+                    $sql = "SELECT * FROM produtos WHERE empresa_id=" . $_SESSION["empresa"];
                     $consulta = mysqli_query($mysqli, $sql);
                     
                     $i = 0;
@@ -95,19 +126,20 @@ include('php_arquivos/conexao.php');
                             
                             }
                             
-                        $table_content .= '<tr id="'.$id.'" onClick="pre_modificar('.$id.')" data-bs-toggle="offcanvas" data-bs-target="#register-div">';
-                        $table_content .= "
+                        $return .= '<tr id="'.$id.'" onClick="pre_modificar('.$id.')" data-bs-toggle="offcanvas" data-bs-target="#register-div">';
+                        $return .= "
                                 <td id='$id-id' class='id'>$id</td>\n
                                 <td id='$id-name'>$name</td>\n
                                 <td id='$id-qtd'>$qtd</td>\n
-                                <td id='$id-preco'>$preco</td>\n
+                                <td>R$$preco</td>\n
+                                <td class='id' id='$id-preco'>$preco</td>\n
                                 <td>$validade</td>\n
                                 <td class='id' id='$id-validade'>".$linha['validade']."</td>\n
                                 <td>$garantia</td>\n
                                 <td class='id' id='$id-garantia'>".$linha['garantia']."</td>\n
                             </tr>\n";
                     }
-                    echo $table_content;
+                    echo $return;
 				?>
 				
 				</tbody>
@@ -138,7 +170,7 @@ include('php_arquivos/conexao.php');
 			<form class="form bg-light" method="POST" action="estoque.php" id="register-form">
 				<input name="id_produto" type="hidden" id="id" value="" />
 				
-				<input name="id_empresa" type="hidden" id="id" value="1" />
+				<input name="id_empresa" type="hidden" id="id" value=<?php echo '"'. $_SESSION["empresa"] .'"'; ?> />
 				
 
 				<div class="box">
