@@ -15,9 +15,10 @@
                 echo "Preencha todos os campos obrigatórios!";
             
             } else {
+
                 $consulta1 = mysqli_query($mysqli, "SELECT * FROM encomendas WHERE id_encomenda='$id_encomenda'");
                 $consulta2 = mysqli_query($mysqli, "SELECT * FROM encomendas_produtos WHERE encomenda_id='$id_encomenda'");
-
+                    
                 if (mysqli_num_rows($consulta1) == 0 || mysqli_num_rows($consulta2) == 0) {
                     echo "Encomenda não existe ou não possui nenhum produto associado!";
                 
@@ -25,17 +26,19 @@
                     $x=0;
                     $content .= "<form class='form bg-light' method='POST' action='php_arquivos/encomendas/alterarEncomenda2.php' id='outro-form'>";
 
-                    while($coluna = mysqli_fetch_array($consulta2)) { 
-                    
+                    while ($coluna = mysqli_fetch_array($consulta2)) {
+                        $id_p = $coluna['produto_id'];                        
+                            $coluna2 = mysqli_fetch_array(mysqli_query($mysqli, "SELECT nome_produto FROM produtos WHERE id_produto=$id_p"));
+                                    $nome_p = $coluna2['nome_produto'];
+
                         $content.="
                             <div class='box'>
                             <input type='text' id='qtd[$x]' name='qtd[$x]'/>
-                            <label for='qtd[$x]'>Produto $x</label>
+                            <label for='qtd[$x]'>Quantidade - $nome_p</label>
                             </div>
-                            ";
-                                
-                            $x++;
-                    }     
+                            ";             
+                    $x++;
+                    }
                 }
             }
             
