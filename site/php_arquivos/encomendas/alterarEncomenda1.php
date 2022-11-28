@@ -24,19 +24,32 @@
                 
                 } else {
                     $x=0;
-                    $content .= "<form class='form bg-light' method='POST' action='php_arquivos/encomendas/alterarEncomenda2.php' id='outro-form'>";
+                    $content .= "<form class='form bg-light scroll' method='POST' action='php_arquivos/encomendas/alterarEncomenda2.php' id='outro-form'>";
 
                     while ($coluna = mysqli_fetch_array($consulta2)) {
-                        $id_p = $coluna['produto_id'];                        
+                        $id_p = $coluna['produto_id'];
+                        $qtd_p = $coluna['quantidade'];
                             $coluna2 = mysqli_fetch_array(mysqli_query($mysqli, "SELECT nome_produto FROM produtos WHERE id_produto=$id_p"));
                                     $nome_p = $coluna2['nome_produto'];
 
-                        $content.="
-                            <div class='box'>
-                            <input type='text' id='qtd[$x]' name='qtd[$x]'/>
-                            <label for='qtd[$x]'>Quantidade - $nome_p</label>
-                            </div>
-                            ";             
+                            if($x == 0){
+                                $content.="
+                                $nome_p:
+                                    <div class='box'>
+                                    <input class='outro-input' type='number' id='qtd[$x]' name='qtd[$x]' value='$qtd_p'/>
+                                    <label for='qtd[$x]'>Quantidade</label>
+                                    </div>
+                                    "; 
+                            }else{
+                                $content.="
+                                <hr>
+                                $nome_p:
+                                    <div class='box'>
+                                    <input class='outro-input' type='number' id='qtd[$x]' name='qtd[$x]' value='$qtd_p'/>
+                                    <label for='qtd[$x]'>Quantidade</label>
+                                    </div>
+                                    "; 
+                            }
                     $x++;
                     }
                 }

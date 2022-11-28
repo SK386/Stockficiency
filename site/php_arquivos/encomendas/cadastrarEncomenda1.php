@@ -31,18 +31,34 @@
                             
                     for ($i = 0; $i < $qtd_p; $i++) {
                     
-                    $content .= "<br><hr>
-                <h4>Produto n°".($i+1)."</h4>
-                <div class='box'>
-					<input type='text' id='id_prod$i' name='produto_id[$i]' />
-					<label for='id_prod$i'>ID do produto</label>
-				</div>
-				
-				<div class='box'>
-					<input type='text' id='qtd_enc$i' name='qtd[$i]' />
-					<label for='qtd_enc$i'>Quantidade</label>
-				</div>
-                ";
+                    if($i==0){
+                        $content .= "
+                    <h4>Produto n°".($i+1)."</h4>
+                    <div class='box'>
+                        <input type='text' id='id_prod$i' name='produto_id[$i]' />
+                        <label for='id_prod$i'>ID do produto</label>
+                    </div>
+                    
+                    <div class='box'>
+                        <input type='text' id='qtd_enc$i' name='qtd[$i]' />
+                        <label for='qtd_enc$i'>Quantidade</label>
+                    </div>
+                    ";
+                }else{
+                    $content .= "
+                    <hr>
+                    <h4>Produto n°".($i+1)."</h4>
+                    <div class='box'>
+                        <input type='text' id='id_prod$i' name='produto_id[$i]' />
+                        <label for='id_prod$i'>ID do produto</label>
+                    </div>
+                    
+                    <div class='box'>
+                        <input type='text' id='qtd_enc$i' name='qtd[$i]' />
+                        <label for='qtd_enc$i'>Quantidade</label>
+                    </div>
+                    ";
+                }
 
                     }
                     $content .='
@@ -50,7 +66,7 @@
                     <br/><input class="id" type="submit" id="submit2" value="Finalizar registro" />
                     </form>';
                     $_SESSION['for'] = $content;
-                    echo $_SESSION['for'];
+                   
                     }
             }
             header("Location: ../../encomendas.php");

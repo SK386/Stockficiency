@@ -10,15 +10,20 @@ function loaded(){
     document.getElementById('horario').addEventListener('blur', leave);
     document.getElementById('qtd_produtos').addEventListener('blur', leave);
     document.getElementById('observacao').addEventListener('blur', leave);
+    document.getElementById("qtd_produtos").required = true;
     
     var element = document.getElementById("outro-form");
 
-    //If it isn't "undefined" and it isn't "null", then it exists.
     if(typeof(element) != 'undefined' && element != null){
         console.log('Element exists!');
         document.getElementById("register-form").style.display = 'none';
         document.getElementById("random").click();
         document.getElementById("modificar").setAttribute('onClick','modificar2()' );
+        var outro_inp = document.getElementsByClassName("outro-input");
+            for( i=0; i < outro_inp.length; i++){
+                outro_inp[i].addEventListener('blur', leave);
+                outro_inp[i].offsetParent.className += ' ativo';
+            }
         
     } else{
         console.log('Element does not exist!');
@@ -39,6 +44,7 @@ function pre_modificar(id){
     var Reg_hor = document.getElementById("horario");
     var Reg_obs = document.getElementById("observacao");
     document.getElementById("qtdp_box").style.display = 'none';
+    document.getElementById("qtd_produtos").required = false;
 
     var Table_ori = document.getElementById(id+"-origem");
     var Table_des = document.getElementById(id+"-destino");
@@ -70,14 +76,14 @@ function pre_modificar(id){
 function modificar(){        
     
             document.getElementById("register-form").action = "php_arquivos/encomendas/alterarEncomenda1.php";
-            document.getElementById("submit-mod").click();
+            document.getElementById("submit").click();
             
 }
 
 function modificar2(){
     
             document.getElementById("outro-form").action = "php_arquivos/encomendas/alterarEncomenda2.php";
-            document.getElementById("submit-mod2").click();
+            document.getElementById("submit2").click();
             
 }
 
@@ -85,7 +91,7 @@ function modificar2(){
 
 function deletar(){
     document.getElementById("register-form").action = "php_arquivos/encomendas/deletarEncomenda.php";
-	document.getElementById("submit-del").click();
+	document.getElementById("submit").click();
 }
 
 function normal(){
@@ -95,13 +101,13 @@ function normal(){
 function adicionar(){
 
         document.getElementById("register-form").action = "php_arquivos/encomendas/cadastrarEncomenda1.php";
-        document.getElementById("submit-add").click();
+        document.getElementById("submit").click();
         
 }
 function adicionar2(){
 
         document.getElementById("outro-form").action = "php_arquivos/encomendas/cadastrarEncomenda2.php";
-        document.getElementById("submit-add").click();
+        document.getElementById("submit2").click();
         
 }
 
@@ -119,15 +125,17 @@ function refresh(){
 
 function popup(msg, opt){
     
-    console.log("teste");
-    
     if(opt == 1 && msg != ''){
         document.getElementById("Alert").style.display = "block";
+        document.getElementById("alert").style.display = "block";
         document.getElementById('msg').innerHTML = msg;
         document.getElementById("Alert").style.zIndex = "70";
+        document.getElementById("alert").style.zIndex = "60";
     } else if(opt == 2 ){
         document.getElementById("Alert").style.display = "none";
+        document.getElementById("alert").style.display = "none";
         document.getElementById("Alert").style.zIndex = "-70";
+        document.getElementById("alert").style.zIndex = "-70";
     }
 }
 

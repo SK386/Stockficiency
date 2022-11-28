@@ -18,7 +18,7 @@ include('php_arquivos/conexao.php');
 
 <body>
 
-    <script src="encomenda.js"></script>
+    <script src="encomendas.js"></script>
     
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
