@@ -33,7 +33,7 @@
             while($coluna = mysqli_fetch_array($consulta)) {
                 
                 if(strlen($qtd[$x]) != 0) {
-                    $sql = "UPDATE encomendas_produtos SET quantidade=$qtd[$x] WHERE produto_id=$coluna[produto_id]";
+                    $sql = "UPDATE encomendas_produtos SET quantidade=$qtd[$x] WHERE produto_id=$coluna[produto_id] AND encomenda_id='$id_encomenda'";
                         mysqli_query($mysqli, $sql);
                 }
                 
