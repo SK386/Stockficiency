@@ -120,7 +120,7 @@ include('php_arquivos/conexao.php');
         Id
         </div>
         <div class="product-cell image">
-          Produtos
+        Produto
         </div>
         <div class="product-cell stock">
         Quantidade
