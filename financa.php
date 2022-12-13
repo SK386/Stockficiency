@@ -34,8 +34,8 @@ while ($linha = mysqli_fetch_array($consulta)) {
   <meta charset="UTF-8">
   <title>Finanças</title>
   <link rel="stylesheet" href="dependencias\normalize.min.css">
-<link rel="stylesheet" href="./style_chart.css">
-<link rel="stylesheet" href="./styles.css">
+<link rel="stylesheet" href="CSS/style_chart.css">
+<link rel="stylesheet" href="CSS/styles.css">
 
 <link rel="stylesheet" href="dependencias\material_icons.css">
      <link href="dependencias\bootstrap1.min.css" rel="stylesheet">
@@ -198,7 +198,7 @@ while ($linha = mysqli_fetch_array($consulta)) {
 </div>
 
 <!-- partial -->
-  <script  src="./script.js"></script>
+  <script  src="javascript/script.js"></script>
 
 
             

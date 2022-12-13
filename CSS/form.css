@@ -1,11 +1,7 @@
-
-
 body {
 
     padding: 0;
-
     margin: 0;
-
     background-color:#1C1C1C;
 
 }
@@ -13,13 +9,9 @@ body {
 #login {
 
     display: flex;
-
     align-items: center;
-
     justify-content: center;
-
     height: 100vh;
-
     font-family: Roboto, Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 
 }
@@ -32,9 +24,8 @@ body {
     padding: 40px;
 
     border-radius: 6%;
-
     min-width:300px; 
-    min-height:380px;
+    /* min-height:380px; */
 
     width:auto; 
     height:auto
@@ -44,9 +35,7 @@ body {
 .card-header {
 
     padding-bottom: 25px;
-
     opacity: 1.0;
-
     color: #fff;
 
 }
@@ -54,19 +43,12 @@ body {
 .card-header::after {
 
     content: "";
-
     width: auto;
-
     height: 1px;
-
     background-color: #fff;
-
     display: block;
-
     margin-top: -12px;
-
     margin-left: -5px;
-
     align-self: center;
 
 }
@@ -90,17 +72,11 @@ body {
 .card-content-area input {
 
     margin-top: 10px;
-
     padding:0 5px;
-
     background-color: transparent;
-
     border:none;
-
     border-bottom: 1px solid #e1e1e1;
-
     outline: none;
-
     color: #fff;
     font-family:Roboto, Times, 'Times New Roman', serif;
 }
@@ -108,7 +84,6 @@ body {
 .card-footer {
 
     display: flex;
-
     flex-direction: column;
 
 }
@@ -133,15 +108,9 @@ body {
 .card-footer a {
 
     text-align: center;
-
     font-size: 12px;
-
     opacity: 1.0;
-
     color: #fff;
-
     text-decoration: none;
 
 }
-
-

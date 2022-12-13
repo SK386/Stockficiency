@@ -1,6 +1,9 @@
 CREATE TABLE empresas (
     id_empresa MEDIUMINT UNSIGNED AUTO_INCREMENT,
-    email VARCHAR(60) NOT NULL UNIQUE,
+    nome_empresa VARCHAR(65) NOT NULL,
+    email VARCHAR(50) NOT NULL UNIQUE,
+    cnpj char(18) NOT NULL UNIQUE,
+    cep char(9) NOT NULL,
     senha VARCHAR(255) NOT NULL,
         PRIMARY KEY (id_empresa)
 );

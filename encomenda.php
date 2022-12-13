@@ -10,8 +10,8 @@ include('php_arquivos/conexao.php');
   <meta charset="UTF-8">
   <title>Encomendas</title>
   <link rel="stylesheet" href="dependencias\normalize.min.css">
-<link rel="stylesheet" href="./style_chart.css">
-<link rel="stylesheet" href="./styles.css">
+<link rel="stylesheet" href="CSS/style_chart.css">
+<link rel="stylesheet" href="CSS/styles.css">
 
 <link rel="stylesheet" href="dependencias\material_icons.css">
      <link href="dependencias\bootstrap1.min.css" rel="stylesheet">
@@ -139,7 +139,7 @@ include('php_arquivos/conexao.php');
 </div>
 
 <!-- partial -->
-  <script  src="./script.js"></script>
+  <script  src="javascript/script.js"></script>
 
   <div class="offcanvas offcanvas-end " id="register-div" style="background-color:rgb(0,0,0, 0.01); border:0px; width:100%; height: 100%;">
 			<button onClick="normal()" id="funfa" style="width:100%; height:100%; background-color:rgb(0,0,0, 0.01); border: 0px;"></button>
