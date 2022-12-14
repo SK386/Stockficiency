@@ -46,6 +46,5 @@
                 $x++;
             }
             $_SESSION['for'] = $content;
-            echo $_SESSION['for'];
-            header("Location: ../../encomenda.php");
-        ?>
+?>
+    <script>window.location.replace("../../encomenda.php");</script>

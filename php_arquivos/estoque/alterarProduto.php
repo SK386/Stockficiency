@@ -47,5 +47,5 @@ include('../conexao.php');
             $_SESSION['msg'] = "Produto alterado com sucesso!";
         }
     }
-    header("Location: ../../produtos.php");
 ?>
+    <script>window.location.replace("../../produtos.php");</script>

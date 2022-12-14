@@ -26,6 +26,5 @@
                     $_SESSION['msg'] = "Valor registrado com sucesso!";
                 }
             }
-            
-            header("Location: ../../financa.php");
-        ?>
+?>
+    <script>window.location.replace("../../financa.php");</script>

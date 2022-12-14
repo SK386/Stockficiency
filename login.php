@@ -62,6 +62,11 @@
                             $_SESSION['msg_c'] = ''; 
                         }
 
+                        if($_SESSION['msg_C']){
+                            echo "<p style='color:green; text-align:center' class='recuperar_senha'>* ".$_SESSION['msg_C']." *</p>";
+                            $_SESSION['msg_C'] = ''; 
+                        }
+
                         if($_SESSION['msg_s']){
                             echo "<p style='color:red; text-align:center' class='recuperar_senha'>* ".$_SESSION['msg_s']." *</p>";
                             $_SESSION['msg_s'] = ''; 

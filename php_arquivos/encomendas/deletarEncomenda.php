@@ -25,5 +25,5 @@
                     $_SESSION['msg'] = "Encomenda concluída com sucesso!";
                 }
             }
-            header("Location: ../../encomenda.php");
-        ?>
+?>
+    <script>window.location.replace("../../encomenda.php");</script>

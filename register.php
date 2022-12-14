@@ -23,11 +23,6 @@ ini_set('display_errors', 0);
             <script type="text/javascript">
                 $(document).ready(function(){	
                     $("#cnpj").mask("99.999.999/9999-99");
-                });
-            </script>
-
-            <script type="text/javascript">
-                $(document).ready(function(){
                     $("#cep").mask("99999-999");
                 });
             </script>

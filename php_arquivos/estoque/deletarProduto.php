@@ -26,5 +26,5 @@ include('../conexao.php');
             $_SESSION['msg'] = "Produto deletado com sucesso!";
         }
     }
-     header("Location: ../../produtos.php");
 ?>
+    <script>window.location.replace("../../produtos.php");</script>

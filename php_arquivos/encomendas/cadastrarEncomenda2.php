@@ -45,6 +45,5 @@
                     
                     $_SESSION['msg'] = "Encomenda registrada com sucesso!";
                 }
-                
-                header("Location: ../../encomenda.php");
-        ?>
+?>
+    <script>window.location.replace("../../encomenda.php");</script>

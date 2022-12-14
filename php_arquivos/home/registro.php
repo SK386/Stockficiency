@@ -14,7 +14,7 @@ include('../conexao.php');
         if (mysqli_num_rows($consulta) != 0) {
             $_SESSION["msg_e"] = "Email/CNPJ já cadastrado!";
             $_SESSION['email'] = $email;
-            header("Location: ../../register.php");
+                ?><script>window.location.replace("../../register.php");</script><?php
         
         } else {
 
@@ -24,7 +24,6 @@ include('../conexao.php');
 
             $_SESSION["msg_C"] = "Login criado com sucesso!";
             $_SESSION['email'] = $email;
-            header("Location: ../../login.php");
+                ?><script>window.location.replace("../../login.php");</script><?php
         }
-    
 ?>

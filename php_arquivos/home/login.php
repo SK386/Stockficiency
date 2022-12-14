@@ -17,16 +17,16 @@ include('../conexao.php');
         if (mysqli_num_rows($consulta) == 0){
             $_SESSION['msg_c'] =  "Cadastro não encontrado!";
             $_SESSION['email'] = $email;
-            header('Location: ../../login.php');
-   
+                ?><script>window.location.replace("../../login.php");</script><?php
+
         } else if (!(password_verify($senha, $coluna["senha"]))){
             $_SESSION['msg_s'] = "Senha incorreta!";
             $_SESSION['email'] = $email;
-            header('Location: ../../login.php');
+                ?><script>window.location.replace("../../login.php");</script><?php
 
         } else {
             $_SESSION["empresa"] = $coluna["id_empresa"];
-            header('Location: ../../produtos.php');
+                ?><script>window.location.replace("../../produtos.php");</script><?php
         }
     }
 ?>

@@ -30,7 +30,6 @@
                 $x++;
             }
             
-            echo $tb;
             $_SESSION['table']=$tb;
-            header("Location: ../../encomenda.php");
-        ?>
+?>
+    <script>window.location.replace("../../encomenda.php");</script>

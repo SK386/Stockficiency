@@ -24,6 +24,5 @@
                     $_SESSION['msg'] = "Registro deletado com sucesso!";
                 }
             }
-            
-            header("Location: ../../financa.php");
-        ?>
+?>
+    <script>window.location.replace("../../financa.php");</script>

@@ -35,7 +35,5 @@ include("../conexao.php");
         $_SESSION['msg'] = "Produto cadastrado com sucesso!";
         }
     }
-
-
-    header("Location: ../../produtos.php");
 ?>
+    <script>window.location.replace("../../produtos.php");</script>
