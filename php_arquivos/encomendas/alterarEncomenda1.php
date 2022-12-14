@@ -61,6 +61,7 @@
                                     </form>';
                                     
                         $_SESSION['for'] = $content;
+                        echo $_SESSION['for'];
 
 ?> 
     <script>window.location.replace("../../encomenda.php");</script>
